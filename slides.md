@@ -350,12 +350,18 @@ Open questions to decide before the talk:
 -->
 
 ---
+layout: two-col-header
+---
 
 # WHY
 
 ## these limitations are inherent to the design
 
-**A monolithic container file can never support key features in object storage**
+::left::
+
+<div class="why-text">
+
+**A monolithic container file can never support key features in object storage**, which has no edit-in-place:
 
 - Prevents embarrassingly parallel writes
 - Prevents cheap updates → no schema evolution, no versioning
@@ -365,6 +371,46 @@ Open questions to decide before the talk:
 **TIFF as a container constrains the schema**
 
 **GeoTIFF + STAC are domain-specific**
+
+</div>
+
+::right::
+
+<div class="mono">
+
+<div class="mono-title">✏️ rename one variable…</div>
+
+<div class="mono-row">
+  <div class="mono-label">COG <span>one 1 TB object</span></div>
+  <div class="mono-bar">
+    <div class="mono-hdr">hdr</div>
+    <div class="mono-tiles"></div>
+    <div v-click="1" class="mono-redo">rewrite &amp; re-upload all 1 TB</div>
+  </div>
+</div>
+
+<div class="mono-row">
+  <div class="mono-label">Icechunk-Zarr <span>many small objects</span></div>
+  <div class="mono-objs">
+    <div class="mono-snap">snapshot v1</div>
+    <div class="mono-meta">zarr.json</div>
+    <div class="mono-chunks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div v-click="2" class="mono-objs mono-new">
+    <div class="mono-snap">snapshot v2</div>
+    <div class="mono-meta">zarr.json</div>
+    <div class="mono-note">write ~1 KB · chunks reused · v1 still readable</div>
+  </div>
+</div>
+
+</div>
+
+<!--
+Object storage can only overwrite whole objects. So with one big container
+file, any change (even renaming one variable) means rewriting the whole
+thing. With many small objects plus a snapshot, the same change writes two
+tiny new objects, reuses every chunk, and leaves the old version intact.
+-->
 
 ---
 

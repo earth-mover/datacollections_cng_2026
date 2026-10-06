@@ -231,3 +231,120 @@ span.mark { font-size: 0.95em; }
   padding-top: 0.6rem;
   border-top: 1px solid color-mix(in srgb, var(--em-text) 20%, transparent);
 }
+
+/* "Change one byte" diagram: monolithic COG vs many small objects */
+.why-text p,
+.why-text li {
+  font-size: 0.9rem;
+}
+
+.mono {
+  font-size: 0.8rem;
+}
+
+.mono-title {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.mono-row {
+  margin-bottom: 1.2rem;
+}
+
+.mono-label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.mono-label span {
+  font-weight: 400;
+  opacity: 0.65;
+  margin-left: 0.4rem;
+}
+
+.mono-bar {
+  position: relative;
+  display: flex;
+  height: 2.4rem;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  border: 1.5px solid color-mix(in srgb, var(--em-text) 30%, transparent);
+}
+
+.mono-hdr {
+  width: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--em-accent);
+  color: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+}
+
+.mono-tiles {
+  flex: 1;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 1.1rem, color-mix(in srgb, var(--em-text) 25%, transparent) 1.1rem calc(1.1rem + 1px)),
+    color-mix(in srgb, var(--em-text) 8%, transparent);
+}
+
+.mono-redo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.88);
+  color: #fff;
+  font-weight: 700;
+}
+
+.mono-objs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mono-snap,
+.mono-meta {
+  flex-shrink: 0;
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.35rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  border: 1.5px solid color-mix(in srgb, var(--em-text) 30%, transparent);
+}
+
+.mono-snap {
+  border-color: var(--em-accent);
+}
+
+.mono-chunks {
+  display: grid;
+  grid-template-columns: repeat(12, 0.75rem);
+  gap: 3px;
+}
+
+.mono-chunks i {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--em-text) 22%, transparent);
+}
+
+.mono-new {
+  margin-top: 0.5rem;
+}
+
+.mono-new .mono-snap,
+.mono-new .mono-meta {
+  border-color: var(--em-lime, #B7E400);
+  background: color-mix(in srgb, #B7E400 18%, transparent);
+}
+
+.mono-note {
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
