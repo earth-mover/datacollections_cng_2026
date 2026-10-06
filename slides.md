@@ -29,21 +29,28 @@ Lots of debate last year, and the rough consensus was:
 
 ::left::
 
-<div class="text-center mt-6">
-<div class="text-sm uppercase tracking-widest opacity-70">Level 3</div>
-<div class="text-sm opacity-70 mb-4">gridded datacubes</div>
-<div class="text-5xl font-medium text-em-violet">Zarr wins</div>
+<div class="text-center">
+<img src="/images/datacube.png" alt="A datacube of gridded variables" class="h-40 mx-auto mb-3" />
+<div class="text-sm uppercase tracking-widest opacity-70">Level 3 · gridded datacubes</div>
+<div class="text-5xl font-medium text-em-violet mt-2">Zarr wins</div>
 </div>
 
 ::right::
 
-<div class="text-center mt-6">
-<div class="text-sm uppercase tracking-widest opacity-70">Level 2</div>
-<div class="text-sm opacity-70 mb-4">individual scenes</div>
-<div class="text-5xl font-medium text-em-lime">COG + STAC wins</div>
+<div class="text-center">
+<div class="scene-stack h-40 mx-auto mb-3" aria-label="A stack of overlapping satellite scenes">
+  <div class="scene-stack-inner">
+    <div class="scene" style="--i:0; --dx:-18px; --dy:10px; --rot:-6deg; background-position: 10% 20%; filter: hue-rotate(0deg);"></div>
+    <div class="scene" style="--i:1; --dx:14px; --dy:-6px; --rot:5deg; background-position: 60% 70%; filter: hue-rotate(40deg);"></div>
+    <div class="scene" style="--i:2; --dx:-6px; --dy:-16px; --rot:-2deg; background-position: 85% 15%; filter: hue-rotate(-40deg);"></div>
+    <div class="scene" style="--i:3; --dx:20px; --dy:12px; --rot:9deg; background-position: 30% 85%; filter: hue-rotate(80deg);"></div>
+  </div>
+</div>
+<div class="text-sm uppercase tracking-widest opacity-70">Level 2 · individual scenes</div>
+<div class="text-5xl font-medium text-em-lime mt-2">COG + STAC wins</div>
 </div>
 
-<div class="absolute bottom-28 left-0 right-0 text-center text-2xl opacity-80">
+<div class="absolute bottom-14 left-0 right-0 text-center text-2xl opacity-80">
 does it have to be that way?
 </div>
 

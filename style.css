@@ -23,3 +23,30 @@ span.mark { font-size: 0.95em; }
   text-align: center;
   object-fit: contain;
 }
+
+/* Stack of overlapping, slightly misaligned satellite scenes (Level 2 cartoon) */
+.scene-stack {
+  width: 14rem;
+  perspective: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene-stack-inner {
+  position: relative;
+  width: 8.5rem;
+  height: 6rem;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-35deg) translateZ(-1.5rem);
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/earth-observation.png');
+  background-size: 260%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  transform: translateZ(calc(var(--i) * 1.4rem)) translate(var(--dx), var(--dy)) rotate(var(--rot));
+}
