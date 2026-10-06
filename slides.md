@@ -89,18 +89,18 @@ get the same benefits Zarr + Icechunk give Level 3?
 
 | Property | Icechunk-Zarr |
 |---|:---:|
-| Single entrypoint for metadata<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Query by coordinates<img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> | ✅ |
-| Scalable<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Serverless<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Uncoordinated reads<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Uncoordinated writes<img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Single entrypoint for metadata<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Query by coordinates<img v-click="15" class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> | ✅ |
+| Scalable<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Serverless<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Uncoordinated reads<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Uncoordinated writes<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
 
 </v-clicks>
 
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
-<span class="mark">☁️</span> i.e. "cloud-optimized"<br />
-<img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> from Zarr
+<div v-click="13"><span class="mark">☁️</span> i.e. "cloud-optimized"</div>
+<div v-click="14"><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> from Zarr</div>
 </div>
 
 </div>
@@ -110,18 +110,18 @@ get the same benefits Zarr + Icechunk give Level 3?
 
 | Property | Icechunk-Zarr |
 |---|:---:|
-| Arbitrary N-D schemas<img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Domain-agnostic<img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| ACID transactions and consistency<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Versioning, time travel, branches<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Schema evolution<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Zero-copy ingestion ("virtual chunks")<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
+| Arbitrary N-D schemas<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| Domain-agnostic<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
+| ACID transactions and consistency<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
+| Versioning, time travel, branches<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
+| Schema evolution<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
+| Zero-copy ingestion ("virtual chunks")<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
 
 </v-clicks>
 
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
-<img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> from Xarray<br />
-<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> from Icechunk
+<div v-click="15"><img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> from Xarray</div>
+<div v-click="16"><img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> from Icechunk</div>
 </div>
 
 </div>
