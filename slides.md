@@ -333,7 +333,7 @@ layout: devseed-statement
 
 # Sean Harkins · Development Seed
 
-## Putting **STAC-like metadata** right alongside the data it describes.
+## **Storing data and** STAC-like metadata **together**
 
 <!--
 Sean's half starts here. Section opener in DevSeed style.
@@ -346,13 +346,66 @@ layout: devseed
 
 # Design
 
-## Example DevSeed content slide
+## What Do We Want In A Level 2 Zarr System
 
-- Placeholder bullets: replace with Sean's content
-- Store STAC-like metadata **inside the Icechunk repo**, next to the arrays
-- Icechunk manages **atomic transactions** across data and metadata
-- Then: development roadmap, and how the CNG community can get involved
+- It should leverage existing technology from other "Big Data" domains.
+- It atomic transactions to commit **data and metadata** together.
+- It should support embarrassingly parallel reading and writing.
+- It is domain agnostic and can work across geospatial and bioimaging
+  domains.
 
+---
+layout: devseed
+---
+
+# First Attempts
+
+Most of the "metadata" we're discussing can be modeled as an Arrow schema. So as an initial experiment we thought **What if we could store Arrow like data in Icechunk?**
+
+<div class="flex flex-col items-center gap-3 mt-4">
+  <img src="/images/zarr-datafusion/zarr-datafusion_logo_white.png" alt="Zarr-Datafusion-Search logo" class="h-56" />
+  <span class="font-bold text-xl">Zarr-Datafusion-Search</span>
+</div>
+
+---
+layout: devseed
+---
+
+# Zarr-Datafusion-Search
+Datafusion let's us build queryable database-like systems from any backend that can emit Arrow RecordBatches.  With this we can represent columnar formats like Parquet using a series of 1-D Zarr arrays.
+
+<ChunkScanning class="mt-4" />
+
+---
+layout: devseed
+---
+
+# Zarr-Datafusion-Search
+
+## Pros and cons
+
+<div class="grid grid-cols-2 gap-x-12">
+<div>
+
+### Pros
+
+- Only requires **Icechunk** and a compliant **DataFusion table provider**.
+- Materialized **R-tree and B-tree indexes** can be stored as Zarr arrays and used in the query pipeline, which can be much more efficient than common Parquet engine pushdown optimizations.
+- Writing data only requires an **Icechunk-compatible Zarr client**.
+
+</div>
+<div>
+
+### Cons
+
+- A very **custom solution** that doesn't leverage other great industry tools.
+- Writers need to coordinate writing their metadata "columns" so that "rows" are **chunk aligned**.
+- **Variable-length dtypes** have poor decoding performance in Zarr.
+
+</div>
+</div>
+
+---
 <!--
 Placeholder content (taken from the abstract). Layouts available for this half:
 `devseed-statement` (big statement) and `devseed` (heading + body).
