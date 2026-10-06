@@ -1,0 +1,38 @@
+/* Earthmover Brand Tokens — CSS Custom Properties */
+
+:root {
+  /* Static brand colors (always available) */
+  --em-midnight: #201F2C;
+  --em-violet: #A653FF;
+  --em-lime: #B7E400;
+  --em-light-grey: #F5F5F5;
+  --em-dark-gray: #787878;
+  --em-dark-violet: #6D0EDB;
+  --em-light-violet: #C396F9;
+
+  /* Secondary palette */
+  --em-red: #FF6554;
+  --em-orange: #FF9E0D;
+  --em-green: #31D495;
+  --em-blue: #5EC4F7;
+  --em-pink: #F881D1;
+
+  /* Theme-switched tokens — light mode defaults */
+  --em-bg: #F5F5F5;
+  --em-text: #201F2C;
+  --em-heading: #201F2C;
+  --em-accent: #A653FF;
+  --em-muted: #787878;
+  --em-link: #6D0EDB;
+  --em-code-bg: #EAEAEA;
+}
+
+html.dark {
+  --em-bg: #201F2C;
+  --em-text: #F5F5F5;
+  --em-heading: #F5F5F5;
+  --em-accent: #A653FF;
+  --em-muted: #C396F9;
+  --em-link: #C396F9;
+  --em-code-bg: #2E2D3D;
+}

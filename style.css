@@ -1,0 +1,25 @@
+.footer-center {
+  display: none !important;
+}
+
+/* Small superscript logo/emoji markers (Level 3 table legend) */
+.mark {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.45em;
+  margin-left: 0.2em;
+  line-height: 1;
+}
+img.mark { height: 1em; }
+span.mark { font-size: 0.95em; }
+
+/* In the legend, icons sit inline (not superscript) in a fixed-width slot */
+.mark-legend .mark {
+  top: 0;
+  vertical-align: middle;
+  width: 1.2em;
+  margin: 0 0.4em 0 0;
+  text-align: center;
+  object-fit: contain;
+}

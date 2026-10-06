@@ -1,0 +1,16 @@
+{
+  "name": "datacollections-cng-2026",
+  "private": true,
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md --out dist"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.50.0",
+    "@slidev/theme-default": "^0.25.0",
+    "markdown-it-github-alerts": "^1.0.1"
+  },
+  "dependencies": {
+    "echarts": "^6.1.0"
+  }
+}
