@@ -23,11 +23,15 @@ npm run dev        # http://localhost:3030 (live-reloads as you edit slides.md)
 - Slides are separated by `---`. A YAML block right after a separator sets that
   slide's layout, e.g. `layout: two-col-header`.
 - `<!-- ... -->` at the end of a slide becomes its speaker notes.
-- Sean's half goes where the `SEAN HARKINS · DEVELOPMENT SEED` section
-  placeholder currently is (before the end slide).
+- Sean's half starts at the orange `devseed-statement` slide (before the end
+  slide); the slide after it is a placeholder example to replace.
 - Available layouts: `cover`, `default`, `section`, `two-col`,
   `two-col-header`, `three-col-header`, `grid`, `image-left`, `image-right`,
   `quote`, `embed`, `end` (see `theme/layouts/`).
+- DevSeed-style layouts for Sean's half: `devseed-statement` (one big bold
+  line, as a section opener) and `devseed` (heading + body). Both use the
+  DevSeed orange with white Roboto; wrap key phrases in `**bold**` to pick
+  them out in DevSeed dark grey. Styles are in `theme/styles/devseed.css`.
 - Styling uses UnoCSS (Tailwind-compatible classes) plus brand colours such as
   `text-em-violet` and `text-em-lime`. Deck-specific CSS is in `style.css`.
 - Images go in `public/` and are referenced from the root, e.g.

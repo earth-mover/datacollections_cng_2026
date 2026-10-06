@@ -11,6 +11,7 @@
     "markdown-it-github-alerts": "^1.0.1"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.3.0",
     "echarts": "^6.1.0"
   }
 }

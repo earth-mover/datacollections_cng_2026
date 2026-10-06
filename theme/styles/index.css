@@ -2,6 +2,7 @@
 
 @import './fonts.css';
 @import './variables.css';
+@import './devseed.css';
 @import 'markdown-it-github-alerts/styles/github-base.css';
 @import 'markdown-it-github-alerts/styles/github-colors-light.css';
 

@@ -327,14 +327,35 @@ Handoff to Sean for the design details.
 -->
 
 ---
-layout: section
+layout: devseed-statement
 ---
 
-# SEAN HARKINS · DEVELOPMENT SEED
+# Sean Harkins · Development Seed
 
-## design, prototypes, and future work
+## Putting **STAC-like metadata** right alongside the data it describes.
 
-<!-- Placeholder: Sean's half of the talk goes here -->
+<!--
+Sean's half starts here. Section opener in DevSeed style.
+Use **bold** to pick out key phrases in DevSeed dark grey.
+-->
+
+---
+layout: devseed
+---
+
+# Design
+
+## Example DevSeed content slide
+
+- Placeholder bullets: replace with Sean's content
+- Store STAC-like metadata **inside the Icechunk repo**, next to the arrays
+- Icechunk manages **atomic transactions** across data and metadata
+- Then: development roadmap, and how the CNG community can get involved
+
+<!--
+Placeholder content (taken from the abstract). Layouts available for this half:
+`devseed-statement` (big statement) and `devseed` (heading + body).
+-->
 
 ---
 layout: end
