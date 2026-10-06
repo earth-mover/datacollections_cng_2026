@@ -607,3 +607,94 @@ span.mark { font-size: 0.95em; }
 .dl-down { font-size: 0.95rem; line-height: 1.2; }
 .dl-get { margin: 0.2rem 0; }
 .dl-get-arrow { font-size: 1.6rem; }
+
+/* Interface layers: apps -> adapters -> HTTP range requests -> Zarr */
+.zi {
+  font-size: 0.75rem;
+}
+
+.zi-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+  margin: 0.2rem 0 0.25rem;
+}
+
+.zi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem 0.5rem;
+  align-items: center;
+}
+
+.zi-app,
+.zi-if {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0.3rem;
+  border-radius: 0.45rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.zi-app {
+  border: 1.5px solid color-mix(in srgb, var(--em-text) 25%, transparent);
+  background: color-mix(in srgb, var(--em-text) 5%, transparent);
+  font-weight: 600;
+}
+
+.zi-app img { height: 1.6rem; }
+.zi-emoji { font-size: 1.3rem; line-height: 1.6rem; }
+
+.zi-arrow {
+  text-align: center;
+  color: var(--em-muted);
+  line-height: 1;
+}
+
+.zi-if {
+  border: 1.5px solid var(--em-accent);
+  background: color-mix(in srgb, var(--em-accent) 12%, transparent);
+  font-size: 0.68rem;
+}
+
+.zi-http {
+  margin: 0.45rem 0;
+  padding: 0.25rem;
+  text-align: center;
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  border-top: 1px dashed color-mix(in srgb, var(--em-text) 35%, transparent);
+  border-bottom: 1px dashed color-mix(in srgb, var(--em-text) 35%, transparent);
+  opacity: 0.85;
+}
+
+.zi-store {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  border: 2px solid #3d8ac6;
+  background: color-mix(in srgb, #3d8ac6 12%, transparent);
+  font-size: 0.85rem;
+}
+
+.zi-store img { height: 1.5rem; }
+.zi-store em { opacity: 0.7; font-style: normal; }
+
+/* keep dark app logos legible in dark mode */
+.zi-app img {
+  background: #fff;
+  border-radius: 0.3rem;
+  padding: 0.15rem;
+  box-sizing: content-box;
+  height: 1.4rem;
+}

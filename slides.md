@@ -593,10 +593,16 @@ way out, from whatever subset you asked for.
 -->
 
 ---
+layout: two-col-header
+---
 
 # "BUT A COG IS STILL A VALID TIFF!"
 
 ## yes — for *filesystem* applications
+
+::left::
+
+<div class="why-text">
 
 - We can reconstruct GeoTIFFs on demand for any local program (e.g. ArcGIS)
 - It's genuinely impressive that macOS Preview can open a COG — a feat of format stability
@@ -605,3 +611,40 @@ way out, from whatever subset you asked for.
   - It all boils down to HTTP range requests anyway
   - Worst case: an adapter layer that makes a Zarr look like a COG (like netcdf-c on Icechunk)
 - It's 2026 — that interface layer is a fully specified, verifiable task. Vibe-code it!
+
+</div>
+
+::right::
+
+<div class="zi">
+  <div class="zi-store">
+    <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" />
+    <img src="/brand-kit/assets/logos/third-party/zarr.svg" alt="" />
+    <span><strong>Zarr</strong> in object storage <em>(e.g. Icechunk)</em></span>
+  </div>
+  <div class="zi-http">↓ HTTP range requests ↓</div>
+  <div class="zi-label">interface layer</div>
+  <div class="zi-grid">
+    <div class="zi-if">GDAL Zarr driver</div>
+    <div class="zi-if">on-demand GeoTIFF (Flux)</div>
+    <div class="zi-if">netcdf-c + Icechunk</div>
+    <div class="zi-if">Zarr → COG adapter ✨</div>
+    <div class="zi-arrow">↓</div>
+    <div class="zi-arrow">↓</div>
+    <div class="zi-arrow">↓</div>
+    <div class="zi-arrow">↓</div>
+  </div>
+  <div class="zi-label">applications</div>
+  <div class="zi-grid">
+    <div class="zi-app"><img src="/logos/qgis.svg" alt="" /><span>QGIS</span></div>
+    <div class="zi-app"><img src="/logos/arcgis.svg" alt="" /><span>ArcGIS</span></div>
+    <div class="zi-app"><img src="/logos/netcdf-logo.png" alt="" /><span>netCDF tools</span></div>
+    <div class="zi-app"><span class="zi-emoji">🛰️</span><span>any COG reader</span></div>
+  </div>
+</div>
+
+<!--
+Applications don't need the bytes to be a TIFF; they need *an* interface.
+Thin adapter layers (existing drivers, on-demand conversion, or a small shim
+that presents Zarr as a COG) sit between apps and the same range requests.
+-->
