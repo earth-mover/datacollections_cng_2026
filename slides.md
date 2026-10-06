@@ -6,15 +6,16 @@ info: |
   Nicholas (Earthmover) and Sean Harkins (Development Seed). Storing STAC-like
   metadata alongside raw Level 2 data in Zarr, with Icechunk managing atomic
   transactions across data and metadata.
-layout: cover
-illustration: /brand-kit/assets/illustrations/layers.svg
+layout: cover-split
+leftSpeaker: Tom Nicholas · Earthmover
+rightSpeaker: Sean Harkins · Development Seed
+leftAvatar: /images/tom-nicholas.jpg
+rightAvatar: /images/sean-harkins.jpg
 ---
 
 ## Level 2 Data Collections in Zarr
 
 CNG Forum 2026 · Thu, Oct 08, 2026
-
-Sean Harkins (DevSeed) & Tom Nicholas (Earthmover)
 
 ---
 layout: two-col-header
