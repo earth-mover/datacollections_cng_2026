@@ -453,3 +453,157 @@ span.mark { font-size: 0.95em; }
   background: color-mix(in srgb, #B7E400 22%, transparent);
   border: 1.5px solid #B7E400;
 }
+
+/* EDR flow boxes: Icechunk repo -> Flux EDR -> GeoTIFF on your laptop */
+
+.edr-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 2px solid color-mix(in srgb, var(--em-text) 25%, transparent);
+}
+
+.edr-box strong { display: block; }
+
+.edr-box span {
+  display: block;
+  opacity: 0.7;
+  font-size: 0.72rem;
+}
+
+.edr-ic {
+  border-color: #3d8ac6;
+  background: color-mix(in srgb, #3d8ac6 12%, transparent);
+}
+
+.edr-ic img { height: 2rem; }
+
+.edr-svc {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.3rem;
+  border-color: var(--em-accent);
+  background: color-mix(in srgb, var(--em-accent) 10%, transparent);
+}
+
+.edr-svc code {
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+
+.edr-out {
+  border-color: #B7E400;
+  background: color-mix(in srgb, #B7E400 15%, transparent);
+}
+
+.edr-file { font-size: 1.6rem; opacity: 1 !important; }
+
+
+/* Vertical cloud -> laptop download flow */
+.dl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.dl-zone {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1.3rem 0.8rem 0.7rem;
+  border-radius: 0.8rem;
+  border: 2px dashed color-mix(in srgb, var(--em-text) 25%, transparent);
+}
+
+.dl-zone-label {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.7rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.dl-zone .edr-box { min-width: 15rem; justify-content: center; }
+.dl-zone .edr-svc { flex: none; align-items: center; }
+
+.dl-down {
+  color: var(--em-muted);
+  font-size: 1.1rem;
+}
+
+.dl-down span {
+  font-size: 0.7rem;
+  margin-left: 0.3rem;
+}
+
+.dl-get {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.35rem 0;
+}
+
+.dl-get-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--em-accent);
+}
+
+.dl-get code {
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+/* Storage vs service bands inside the cloud zone */
+.dl-layer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, #3d8ac6 8%, transparent);
+}
+
+.dl-layer-svc {
+  background: color-mix(in srgb, var(--em-accent) 8%, transparent);
+}
+
+.dl-layer-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.dl-layer-label span {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.dl-layer .edr-box { min-width: 0; justify-content: flex-start; }
+.dl-layer .edr-svc { align-items: flex-start; }
+.dl-cloud { gap: 0.25rem; }
+
+/* compact spacing so the cloud -> laptop flow fits the slide */
+.dl .edr-box { padding: 0.35rem 0.7rem; }
+.dl .edr-ic img { height: 1.6rem; }
+.dl-zone { padding: 1.15rem 0.6rem 0.5rem; }
+.dl-layer { padding: 0.3rem 0.45rem; }
+.dl-down { font-size: 0.95rem; line-height: 1.2; }
+.dl-get { margin: 0.2rem 0; }
+.dl-get-arrow { font-size: 1.6rem; }

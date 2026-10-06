@@ -536,16 +536,61 @@ layout: section
 ## common objections
 
 ---
+layout: two-col-header
+---
 
 # "BUT I LIKE DOWNLOADING A SINGLE FILE"
 
 ## sure — but that needn't dictate the storage layout
 
+::left::
+
 - It's reasonable to want a file on your local filesystem
 - But we're free to transform the data **any way we like** on its journey from the datacentre to your laptop
-- So use a service to subset the cloud-native store and assemble a COG on request
-  - e.g. Flux
-- A COG that never existed on disk — **the perfect COG for your immediate need**
+- So use a service (e.g. Flux, via OGC API – EDR) to subset the store and assemble a GeoTIFF on request
+- A file that never existed on disk — **the perfect COG for your immediate need**
+
+::right::
+
+<div class="dl">
+  <div class="dl-zone dl-cloud">
+    <div class="dl-zone-label">☁️ cloud</div>
+    <div class="dl-layer">
+      <div class="dl-layer-label">storage layer<span>serverless</span></div>
+      <div class="edr-box edr-ic">
+        <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" />
+        <div><strong>Icechunk repo</strong><span>just objects in a bucket</span></div>
+      </div>
+    </div>
+    <div class="dl-down">↓ <span>reads, subsets, encodes</span></div>
+    <div class="dl-layer dl-layer-svc">
+      <div class="dl-layer-label">service layer<span>optional</span></div>
+      <div class="edr-box edr-svc">
+        <strong>Flux · OGC API – EDR</strong>
+        <span>stateless service on top of the repo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-get">
+    <div class="dl-get-arrow">↓</div>
+    <code>GET …/collections/scenes/cube<br />?bbox=…&amp;datetime=…&amp;f=GeoTIFF</code>
+  </div>
+
+  <div class="dl-zone dl-local">
+    <div class="dl-zone-label">💻 your laptop</div>
+    <div class="edr-box edr-out">
+      <span class="edr-file">📄</span>
+      <div><strong>subset.tif</strong><span>just your bbox, bands &amp; dates</span></div>
+    </div>
+  </div>
+</div>
+
+<!--
+Flux serves OGC API – EDR position / area / cube queries and can return CSV,
+CoverageJSON, NetCDF, or GeoTIFF. So the "single file" is assembled on the
+way out, from whatever subset you asked for.
+-->
 
 ---
 
