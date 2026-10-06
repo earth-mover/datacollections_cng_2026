@@ -85,6 +85,8 @@ get the same benefits Zarr + Icechunk give Level 3?
 <div class="grid grid-cols-2 gap-x-10 mt-4">
 <div>
 
+<v-clicks>
+
 | Property | Icechunk-Zarr |
 |---|:---:|
 | Single entrypoint for metadata<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
@@ -94,6 +96,8 @@ get the same benefits Zarr + Icechunk give Level 3?
 | Uncoordinated reads<span class="mark">☁️</span><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
 | Uncoordinated writes<img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
 
+</v-clicks>
+
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
 <span class="mark">☁️</span> i.e. "cloud-optimized"<br />
 <img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> from Zarr
@@ -101,6 +105,8 @@ get the same benefits Zarr + Icechunk give Level 3?
 
 </div>
 <div>
+
+<v-clicks>
 
 | Property | Icechunk-Zarr |
 |---|:---:|
@@ -110,6 +116,8 @@ get the same benefits Zarr + Icechunk give Level 3?
 | Versioning, time travel, branches<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
 | Schema evolution<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
 | Zero-copy ingestion ("virtual chunks")<img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
+
+</v-clicks>
 
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
 <img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> from Xarray<br />
@@ -185,6 +193,8 @@ layout: two-col-header
 <div class="grid grid-cols-2 gap-x-8 mt-4">
 <div>
 
+<v-clicks>
+
 | Property | Icechunk-Zarr | STAC + COG |
 |---|:---:|:---:|
 | Single entrypoint for metadata | ✅ | ✅ |
@@ -194,8 +204,12 @@ layout: two-col-header
 | Uncoordinated reads | ✅ | ✅ |
 | Uncoordinated writes | ✅ | 🟠 |
 
+</v-clicks>
+
 </div>
 <div>
+
+<v-clicks>
 
 | Property | Icechunk-Zarr | STAC + COG |
 |---|:---:|:---:|
@@ -205,6 +219,8 @@ layout: two-col-header
 | Versioning, time travel, branches | ✅ | ❌ |
 | Schema evolution | ✅ | ❌ |
 | Zero-copy ingestion | ✅ | 🟠 |
+
+</v-clicks>
 
 </div>
 </div>
