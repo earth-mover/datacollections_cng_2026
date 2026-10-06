@@ -413,14 +413,50 @@ tiny new objects, reuses every chunk, and leaves the old version intact.
 -->
 
 ---
+layout: two-col-header
+---
 
 # WHAT WOULD BE BETTER?
 
 ## a domain-agnostic way to manage sets of related arrays
 
+::left::
+
 - If only we could put **all the chunks and all the metadata** in one consistently versioned, cloud-native data repository…
 - We still want STAC-like metadata search
 - But if we can get that *from* Icechunk, we immediately gain loads of powerful features
+
+::right::
+
+<div class="ic-repo">
+  <div class="ic-repo-head">
+    <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" />
+    <span>one Icechunk repo</span>
+  </div>
+  <div class="ic-parts">
+    <div class="ic-part">
+      <div class="ic-part-title">🗂️ metadata catalog</div>
+      <div class="ic-row ic-row-head"><span>id</span><span>datetime</span><span>EPSG</span></div>
+      <div class="ic-row"><span>A</span><span>2024-07-02</span><span>32610</span></div>
+      <div class="ic-row"><span>B</span><span>2024-07-03</span><span>32611</span></div>
+      <div class="ic-row"><span>C</span><span>2024-07-05</span><span>32633</span></div>
+      <div class="ic-row"><span>D</span><span>2024-07-09</span><span>3031</span></div>
+    </div>
+    <div class="ic-part">
+      <div class="ic-part-title">🧊 chunk storage</div>
+      <div class="ic-group"><span class="ic-thumb" style="background-position: 10% 20%; filter: hue-rotate(0deg);"></span><div class="ic-chunks"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ic-name">A</span></div>
+      <div class="ic-group"><span class="ic-thumb" style="background-position: 60% 70%; filter: hue-rotate(40deg);"></span><div class="ic-chunks"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ic-name">B</span></div>
+      <div class="ic-group"><span class="ic-thumb" style="background-position: 85% 15%; filter: hue-rotate(-40deg);"></span><div class="ic-chunks"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ic-name">C</span></div>
+      <div class="ic-group"><span class="ic-thumb" style="background-position: 30% 85%; filter: hue-rotate(80deg);"></span><div class="ic-chunks"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ic-name">D</span></div>
+    </div>
+  </div>
+  <div class="ic-commit">✓&nbsp; versioned together · updated in one atomic commit</div>
+</div>
+
+<!--
+The fix for the disjoint-systems problem: the same scenes A–D, but now the
+catalog and the chunks live in one repo, so they can't drift apart.
+-->
 
 ---
 layout: section

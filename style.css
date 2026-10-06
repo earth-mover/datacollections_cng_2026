@@ -348,3 +348,108 @@ span.mark { font-size: 0.95em; }
   opacity: 0.8;
   font-size: 0.75rem;
 }
+
+/* "What would be better" diagram: one Icechunk repo holding catalog + chunks */
+.ic-repo {
+  --ic-blue: #3d8ac6;
+  margin-top: 0.3rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  border: 2.5px solid var(--ic-blue);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--ic-blue) 12%, transparent);
+  font-size: 0.75rem;
+}
+
+.ic-repo-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ic-blue);
+}
+
+.ic-repo-head img {
+  height: 1.8rem;
+}
+
+.ic-parts {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0.7rem;
+}
+
+.ic-part {
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  background: var(--em-bg);
+  border: 1px solid color-mix(in srgb, var(--ic-blue) 50%, transparent);
+}
+
+.ic-part-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.ic-row {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr 2.6rem;
+  gap: 0.3rem;
+  padding: 0.22rem 0;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  border-top: 1px solid color-mix(in srgb, var(--em-text) 12%, transparent);
+}
+
+.ic-row-head {
+  border-top: none;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.ic-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.18rem 0;
+}
+
+.ic-thumb {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.15rem;
+  flex-shrink: 0;
+  background-image: url('/images/earth-observation.png');
+  background-size: 400%;
+}
+
+.ic-chunks {
+  display: grid;
+  grid-template-columns: repeat(6, 0.6rem);
+  gap: 2px;
+}
+
+.ic-chunks i {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--ic-blue) 45%, transparent);
+}
+
+.ic-name {
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.ic-commit {
+  margin-top: 0.7rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-weight: 600;
+  background: color-mix(in srgb, #B7E400 22%, transparent);
+  border: 1.5px solid #B7E400;
+}
