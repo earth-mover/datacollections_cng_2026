@@ -226,18 +226,61 @@ a separate index — which is exactly what DataCollections will add.
 -->
 
 ---
+layout: two-col-header
+---
 
 # STAC + COG
 
 ## results in disjoint data systems
 
-- Data lives in one place (COGs in object storage)
-- Metadata lives in another (a STAC catalog / database)
-- Nothing ties the two together transactionally
-- → **Consistency problems** whenever either side changes
+::left::
 
-<!-- TODO: diagram — COG bucket on one side, STAC API/DB on the other, with an
-arrow that can get out of sync -->
+<div class="dj">
+  <div class="dj-head">🪣 object storage</div>
+  <div></div>
+  <div class="dj-head">🗂️ STAC catalog</div>
+
+  <div class="dj-file"><span class="dj-thumb" style="background-position: 10% 20%;"></span>scene_A.tif</div>
+  <div class="dj-arrow">←</div>
+  <div class="dj-item">item A</div>
+
+  <div class="dj-file dj-rel">
+    <span class="dj-thumb" style="background-position: 60% 70%; filter: hue-rotate(40deg);"></span>scene_B.tif
+    <div v-click="3" class="dj-gone">🗑️ deleted</div>
+  </div>
+  <div class="dj-arrow dj-rel">←<div v-click="3" class="dj-broken">404</div></div>
+  <div class="dj-item">item B</div>
+
+  <div class="dj-file"><span class="dj-thumb" style="background-position: 85% 15%; filter: hue-rotate(-40deg);"></span>scene_C.tif</div>
+  <div class="dj-arrow">←</div>
+  <div class="dj-item">item C</div>
+
+  <div v-click="1" class="dj-file dj-new dj-rel">
+    <span class="dj-thumb" style="background-position: 30% 85%; filter: hue-rotate(80deg);"></span>scene_D.tif
+    <div v-click="2" class="dj-orphan"><span>orphaned</span></div>
+  </div>
+  <div></div>
+  <div v-click="2" class="dj-item dj-missing">💥 no item</div>
+</div>
+
+::right::
+
+<div class="dj-steps">
+
+Data and metadata live in **two systems**, linked only by `href`s.
+
+<div v-click="1">① Producer writes a new COG…</div>
+<div v-click="2">💥 …but the job crashes before updating STAC → <strong>orphaned data</strong>, invisible to search</div>
+<div v-click="3">② Scene B is reprocessed and the old COG deleted → <strong>dangling link</strong></div>
+<div v-click="4" class="dj-punch">Nothing ties the two together transactionally → <strong>consistency problems</strong></div>
+
+</div>
+
+<!--
+Walk through the clicks: healthy state, then a new COG lands, then the job
+dies before the STAC item is written (orphan), then a reprocess deletes a COG
+the catalog still points at (404). Neither side can roll back the other.
+-->
 
 ---
 layout: grid

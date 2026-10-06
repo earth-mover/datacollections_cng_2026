@@ -116,3 +116,118 @@ span.mark { font-size: 0.95em; }
   color: var(--em-muted);
   flex-shrink: 0;
 }
+
+/* Disjoint data systems diagram: COG bucket <- STAC items */
+.dj {
+  display: grid;
+  grid-template-columns: 1fr 3rem 1fr;
+  align-items: center;
+  row-gap: 0.7rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.dj-head {
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--em-accent);
+}
+
+.dj-rel { position: relative; }
+
+.dj-file,
+.dj-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.6rem;
+  padding: 0 0.6rem;
+  border-radius: 0.4rem;
+  border: 1.5px solid color-mix(in srgb, var(--em-text) 25%, transparent);
+  background: color-mix(in srgb, var(--em-text) 5%, transparent);
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+}
+
+.dj-item {
+  justify-content: center;
+  border-color: color-mix(in srgb, var(--em-accent) 60%, transparent);
+}
+
+.dj-thumb {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.2rem;
+  flex-shrink: 0;
+  background-image: url('/images/earth-observation.png');
+  background-size: 400%;
+}
+
+.dj-arrow {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--em-muted);
+}
+
+.dj-new { border-color: var(--em-lime, #B7E400); }
+
+/* failure overlays, revealed on click */
+.dj-orphan span {
+  position: absolute;
+  right: -0.5rem;
+  top: -0.65rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.2rem;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.dj-gone,
+.dj-orphan {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 0.4rem;
+  border: 2px dashed #ef4444;
+}
+
+.dj-gone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--em-bg);
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.dj-broken {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--em-bg);
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.dj-missing {
+  border: 2px dashed #ef4444;
+  background: transparent;
+  color: #ef4444;
+}
+
+.dj-steps p,
+.dj-steps > div {
+  font-size: 0.95rem;
+  margin-bottom: 0.7rem;
+}
+
+.dj-punch {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--em-text) 20%, transparent);
+}
