@@ -734,3 +734,12 @@ sup.fn {
 .pc-card.pc-on h3 {
   color: var(--em-accent);
 }
+
+/* Boxed headline claim on the dead end slide */
+.why-text p.why-claim {
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--em-accent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--em-accent) 12%, transparent);
+  font-weight: 600;
+}

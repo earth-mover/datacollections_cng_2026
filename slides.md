@@ -386,30 +386,27 @@ the catalog still points at (404). Neither side can roll back the other.
 layout: two-col-header
 ---
 
-# WHY
+# DEAD END
 
-## these limitations are inherent to the design
+## these limitations are inherent to COG
 
 ::left::
 
 <div class="why-text">
-
-**A monolithic container file can never support key features in object storage**, which has no edit-in-place:
-
-- Prevents embarrassingly parallel writes
-- Prevents cheap updates → no schema evolution, no versioning
-- Can't use the serverless consistency mechanism Icechunk uses
-- Virtual references inherently involve multiple files
-
-**TIFF as a container constrains the schema**
-
-**GeoTIFF + STAC are domain-specific**
-
+<p v-click="1" class="why-claim">A single-file container format can never support key features in object storage, since <it>object storage has no edit-in-place</it>.</p>
+<ul>
+<li v-click="2">Prevents uncoordinated writes</li>
+<li v-click="3">Prevents cheap updates → no schema evolution, no versioning</li>
+<li v-click="7"><strong>Prevents consistency(!!)</strong> using the serverless mechanism Icechunk uses (conditional puts)</li>
+<li v-click="8">Virtual references inherently involve multiple files</li>
+</ul>
+<p v-click="9"><strong>TIFF as a container constrains the schema</strong></p>
+<p v-click="10"><strong>GeoTIFF + STAC are domain-specific</strong></p>
 </div>
 
 ::right::
 
-<div class="mono">
+<div v-click="4" class="mono">
 
 <div class="mono-title">✏️ rename one variable…</div>
 
@@ -418,7 +415,7 @@ layout: two-col-header
   <div class="mono-bar">
     <div class="mono-hdr">hdr</div>
     <div class="mono-tiles"></div>
-    <div v-click="1" class="mono-redo">rewrite &amp; re-upload all 1 TB</div>
+    <div v-click="5" class="mono-redo">rewrite &amp; re-upload all 1 TB</div>
   </div>
 </div>
 
@@ -429,7 +426,7 @@ layout: two-col-header
     <div class="mono-meta">zarr.json</div>
     <div class="mono-chunks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <div v-click="2" class="mono-objs mono-new">
+  <div v-click="6" class="mono-objs mono-new">
     <div class="mono-snap">snapshot v2</div>
     <div class="mono-meta">zarr.json</div>
     <div class="mono-note">write ~1 KB · chunks reused · v1 still readable</div>
