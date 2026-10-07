@@ -331,9 +331,9 @@ Open questions to decide before the talk:
 layout: two-col-header
 ---
 
-# STAC + COG
+# metadata separate from data
 
-## results in disjoint data systems
+## disjoint systems: no consistency guarantees!
 
 ::left::
 
