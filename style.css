@@ -454,6 +454,15 @@ span.mark { font-size: 0.95em; }
   border: 1.5px solid #B7E400;
 }
 
+/* On the DevSeed (orange) half of a two-col-split slide, keep the repo diagram
+   as a solid Earthmover card so its text doesn't inherit the half's white */
+.two-col-split .ic-repo {
+  background: var(--em-bg);
+  color: var(--em-text);
+  border-color: #fff;
+  box-shadow: 0 0 0 1px var(--ic-blue);
+}
+
 /* EDR flow boxes: Icechunk repo -> Flux EDR -> GeoTIFF on your laptop */
 
 .edr-box {

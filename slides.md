@@ -443,26 +443,26 @@ tiny new objects, reuses every chunk, and leaves the old version intact.
 -->
 
 ---
-layout: two-col-header
+layout: two-col-split
 ---
 
 # IDEA: ICECHUNK DATACOLLECTIONS
 
-## better: many images + catalog, in one repo
+## better: many images + catalog in one repo
 
 ::left::
 
 <v-clicks at="1" depth="2">
 
-- What if we put **many, many images** (any shapes, any CRSs) into one Icechunk repo…
-  - …alongside a 1D, **STAC-like metadata table** to search them?
+- What if we put **many images** (any shapes, any CRSs) into one Icechunk repo…
+- …alongside a searchable **STAC-like metadata table** that indexes them?
 
 </v-clicks>
 
 <v-clicks at="4">
 
 - Chunks and catalog are versioned together: **ACID, consistency, versioning and virtual chunks, for free**
-- And it's domain-agnostic: any set of related arrays
+- And it's domain-agnostic and works for any set of related arrays
 
 </v-clicks>
 
@@ -498,43 +498,6 @@ The fix for the disjoint-systems problem: the same scenes A–D, but now the
 catalog and the chunks live in one repo, so they can't drift apart.
 Handoff to Sean for the design details.
 -->
-
----
-layout: devseed-statement
----
-
-# Sean Harkins · Development Seed
-
-## **Storing data and** STAC-like metadata **together**
-
-<!--
-Sean's half starts here. Section opener in DevSeed style.
-Use **bold** to pick out key phrases in DevSeed dark grey.
--->
-
----
-layout: devseed
----
-
-# Design
-
-## What Do We Want In A ~~Level 2 Zarr System~~ **Array Database?**
-<div class="grid grid-cols-[1fr_auto] gap-x-10 items-center">
-<div>
-
-At this point we need to take a step back and realize that we're
-trying to build database technology that needs to solve these problems.
-
-1. Storing columnar metadata.
-2. Querying using industry standard tooling.
-3. Supporting transactions for **data and metadata** together.
-4. Scaling to **billions?** of arrays.
-
-</div>
-
-<AtomicCommit />
-
-</div>
 
 ---
 layout: devseed
