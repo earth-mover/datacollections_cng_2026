@@ -491,6 +491,44 @@ A catalog service normally handles table maintenance. In Icechest, Iceberg versi
 <IcechestMaintenance class="mt-4" />
 
 ---
+layout: devseed
+---
+
+# Icechest cons
+
+## Icechunk node scaling
+
+Level 3 data may have billions of chunks, but in **one array**. Level 2 data means **many discrete groups and arrays**. Virtualizing the full HLS archive into Icechest takes a mind-boggling number of **Zarr nodes**.
+
+<div class="grid grid-cols-[auto_1fr] gap-x-8 mt-3 items-start">
+
+<NodeScaling />
+
+<div class="hls">
+
+| collection | granules | nodes/granule | total nodes |
+| --- | ---: | ---: | ---: |
+| HLSL30 | 16,102,070 | 181 | 2.91 B |
+| HLSS30 | 22,051,832 | 217 | 4.79 B |
+| **combined** | 38,153,902 | | **7.70 B** |
+
+<div class="hls-callout">
+Commit memory and time grow with the <b>total nodes in the store</b> (<a href="https://github.com/earth-mover/icechunk/issues/2449">icechunk#2449</a>): one year of HLS (~318 M nodes) extrapolates to <b>~499 GiB</b> and <b>~5.7 min</b> per commit.
+</div>
+
+</div>
+</div>
+
+<style>
+.hls table { width: 100%; border-collapse: collapse; }
+/* Same line structure as the Earthmover tables, with DevSeed navy as the accent */
+.slidev-layout.ds-layout .hls th { font-size: 0.8rem; font-weight: 700; padding: 0.4em 0.6em; border-bottom: 2px solid var(--ds-highlight); }
+.slidev-layout.ds-layout .hls td { font-size: 0.8rem; padding: 0.35em 0.6em; border-bottom: 1px solid rgba(255, 255, 255, 0.45); font-variant-numeric: tabular-nums; }
+.hls-callout { margin-top: 0.9rem; padding: 0.55rem 0.8rem; border-radius: 8px; background: var(--ds-highlight); font-size: 0.8rem; line-height: 1.4; }
+.hls-callout b { font-weight: 900; }
+</style>
+
+---
 Domain Agnostic schemas
 <!--
 Placeholder content (taken from the abstract). Layouts available for this half:
