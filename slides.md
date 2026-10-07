@@ -701,6 +701,22 @@ Commit memory and time grow with the <b>total nodes in the store</b> (<a href="h
 </style>
 
 ---
+layout: cover-split
+leftSpeaker: Tom Nicholas · Earthmover
+rightSpeaker: Sean Harkins · Development Seed
+leftAvatar: /images/tom-nicholas.jpg
+rightAvatar: /images/sean-harkins.jpg
+---
+
+::center::
+
+<div class="closing-q">what do you think?</div>
+
+<!--
+Closing slide: open it up for questions and discussion.
+-->
+
+---
 
 # BONUS
 

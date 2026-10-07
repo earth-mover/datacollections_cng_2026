@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // Joint Earthmover / Development Seed cover: left half in Earthmover colours,
 // right half in DevSeed orange. Default slot = left content (title etc.),
-// `::right::` slot = optional right content. Speaker names sit at the bottom
+// `::right::` slot = optional right content, `::center::` slot = content
+// centred across both halves (e.g. a closing question). Speaker names sit at the bottom
 // of each half, aligned.
 withDefaults(defineProps<{
   leftSpeaker?: string
@@ -38,11 +39,15 @@ withDefaults(defineProps<{
         <span>{{ rightSpeaker }}</span>
       </div>
     </div>
+    <div v-if="$slots.center" class="cs-center">
+      <slot name="center" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .cover-split {
+  position: relative;
   height: 100%;
   padding: 0;
   display: grid;
@@ -134,5 +139,15 @@ withDefaults(defineProps<{
 
 .cs-right :deep(strong) {
   color: var(--ds-dark);
+}
+
+/* Optional `::center::` slot: content centred across both halves */
+.cs-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 </style>
