@@ -78,7 +78,7 @@ get the same benefits Zarr + Icechunk give Level 3?
 
 ---
 
-# Desired properties
+# Desired features
 
 ## icechunk-zarr works great! (for level 3)
 
@@ -88,7 +88,7 @@ get the same benefits Zarr + Icechunk give Level 3?
 <table>
 <thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th></tr></thead>
 <tbody>
-<tr v-click="1"><td>Single entrypoint for metadata<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="1"><td>Single entrypoint<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
 <tr v-click="2"><td>Query by coordinates<span v-click="7" class="mark">☁️</span><img v-click="3" class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /></td><td style="text-align:center">✅</td></tr>
 <tr v-click="4"><td>Scalable<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
 <tr v-click="5"><td>Serverless<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
@@ -184,43 +184,45 @@ layout: two-col-header
 
 ---
 
-# STAC + COG
+# feature comparison
 
-## solves some problems, but not all
+## STAC + COG solves some problems, but not all
 
 <div class="grid grid-cols-2 gap-x-8 mt-4">
 <div>
 
-<v-clicks>
-
-| Property | Icechunk-Zarr | STAC + COG |
-|---|:---:|:---:|
-| Single entrypoint for metadata | ✅ | ✅ |
-| Query by coordinates | ❓ | ✅ |
-| Scalable | ✅ | ✅ |
-| Serverless | ✅ | 🟠 |
-| Uncoordinated reads | ✅ | ✅ |
-| Uncoordinated writes | ✅ | 🟠 |
-
-</v-clicks>
+<table>
+<thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th><th style="text-align:center">STAC + COG</th></tr></thead>
+<tbody>
+<tr v-click="1"><td>Single entrypoint<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="2"><td>Query by coordinates<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="3"><td>Scalable<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="4"><td>Serverless<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
+<tr v-click="5"><td>Uncoordinated reads<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="7"><td>Uncoordinated writes</td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
+</tbody>
+</table>
 
 </div>
 <div>
 
-<v-clicks>
-
-| Property | Icechunk-Zarr | STAC + COG |
-|---|:---:|:---:|
-| Arbitrary N-D schemas | ✅ | ❌ |
-| Domain-agnostic | ✅ | ❌ |
-| ACID transactions and consistency | ✅ | ❌ |
-| Versioning, time travel, branches | ✅ | ❌ |
-| Schema evolution | ✅ | ❌ |
-| Zero-copy ingestion | ✅ | 🟠 |
-
-</v-clicks>
+<table>
+<thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th><th style="text-align:center">STAC + COG</th></tr></thead>
+<tbody>
+<tr v-click="8"><td>Arbitrary N-D schemas</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="9"><td>Domain-agnostic</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="10"><td>ACID transactions and consistency</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="11"><td>Versioning, time travel, branches</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="12"><td>Schema evolution</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="13"><td>Zero-copy ingestion</td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
+</tbody>
+</table>
 
 </div>
+</div>
+
+<div v-click="6" class="mark-legend text-base opacity-70 mt-6 ml-4">
+<span class="mark">☁️</span> i.e. "cloud-optimized"
 </div>
 
 <style>
@@ -233,10 +235,6 @@ exactly why we (rightly) call COG "cloud-optimized".
 
 Serverless 🟠: COGs and static STAC catalogs need no server, but searching at
 scale in practice means running a STAC API + database (e.g. pgSTAC).
-
-Query by coordinates ❓ for Icechunk-Zarr: this is the one row where STAC wins.
-For Level 2 there is no shared grid to .sel() on, so plain Icechunk-Zarr needs
-a separate index — which is exactly what DataCollections will add.
 -->
 
 ---
