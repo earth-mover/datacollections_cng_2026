@@ -540,7 +540,7 @@ layout: end
 layout: section
 ---
 
-# BACKUP
+# BONUS
 
 ## common objections
 
@@ -548,21 +548,25 @@ layout: section
 layout: two-col-header
 ---
 
-# "BUT I LIKE DOWNLOADING A SINGLE FILE"
+# SINGLE-FILE DOWNLOAD
 
-## sure — but that needn't dictate the storage layout
+## "BUT I LIKE DOWNLOADING A SINGLE FILE"
+
+<p class="answer-box">sure — but that needn't dictate the storage layout</p>
 
 ::left::
 
-- It's reasonable to want a file on your local filesystem
-- But we're free to transform the data **any way we like** on its journey from the datacentre to your laptop
-- So use a service (e.g. Flux, via OGC API – EDR) to subset the store and assemble a GeoTIFF on request
-- A file that never existed on disk — **the perfect COG for your immediate need**
+<ul>
+<li v-click="1">It's reasonable to want a file on your local filesystem</li>
+<li v-click="2">But we're free to transform the data <strong>any way we like</strong> on its journey from the datacentre to your laptop</li>
+<li v-click="3">So use a service (e.g. Flux, via OGC API – EDR) to subset the store and assemble a GeoTIFF on request</li>
+<li v-click="7">A file that never existed on disk — <strong>the perfect COG for your immediate need</strong></li>
+</ul>
 
 ::right::
 
 <div class="dl">
-  <div class="dl-zone dl-cloud">
+  <div v-click="4" class="dl-zone dl-cloud">
     <div class="dl-zone-label">☁️ cloud</div>
     <div class="dl-layer">
       <div class="dl-layer-label">storage layer<span>serverless</span></div>
@@ -581,12 +585,12 @@ layout: two-col-header
     </div>
   </div>
 
-  <div class="dl-get">
+  <div v-click="5" class="dl-get">
     <div class="dl-get-arrow">↓</div>
     <code>GET …/collections/scenes/cube<br />?bbox=…&amp;datetime=…&amp;f=GeoTIFF</code>
   </div>
 
-  <div class="dl-zone dl-local">
+  <div v-click="6" class="dl-zone dl-local">
     <div class="dl-zone-label">💻 your laptop</div>
     <div class="edr-box edr-out">
       <span class="edr-file">📄</span>
@@ -609,29 +613,33 @@ layout: two-col-header
 
 ## "but many applications understand TIFF!"
 
-yes — *filesystem* applications
+<p v-click="1" class="answer-box">yes — <em>filesystem</em> applications</p>
 
 ::left::
 
 <div class="why-text">
-
-- We can **reconstruct GeoTIFFs on demand** for any local program (e.g. ArcGIS)
-- It's genuinely impressive that macOS Preview can open a COG — a feat of format stability
-  - But no one points Preview at object storage
-- Any application that reads TIFFs **from object storage** can be taught to read Zarr (it's all just range requests)
-- Compatibility via adapter layer is a **much easier problem** than consistency - vibe code it!
-
+<ul>
+<li v-click="2">We can <strong>reconstruct GeoTIFFs on demand</strong> for any local program (e.g. ArcGIS)</li>
+<li v-click="3">It's genuinely impressive that macOS Preview can open a COG — a feat of format stability
+<ul><li v-click="4">But no one points Preview at object storage</li></ul>
+</li>
+<li v-click="5">Any application that reads TIFFs <strong>from object storage</strong> can be taught to read Zarr (it's all just range requests)</li>
+<li v-click="9">Compatibility via adapter layer is a <strong>much easier problem</strong> than consistency - vibe code it!</li>
+</ul>
 </div>
 
 ::right::
 
 <div class="zi">
+  <div v-click="6">
   <div class="zi-store">
     <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" />
     <img src="/brand-kit/assets/logos/third-party/zarr.svg" alt="" />
     <span><strong>Icechunk-Zarr</strong> in object storage</span>
   </div>
   <div class="zi-http">↓ HTTP range requests ↓</div>
+  </div>
+  <div v-click="7">
   <div class="zi-label">interface layer</div>
   <div class="zi-grid">
     <a class="zi-if zi-exists" href="https://github.com/OSGeo/gdal/pull/14755" target="_blank">GDAL Icechunk driver<span class="zi-status">✅ exists</span></a>
@@ -643,12 +651,15 @@ yes — *filesystem* applications
     <div class="zi-arrow">↓</div>
     <div class="zi-arrow">↓</div>
   </div>
+  </div>
+  <div v-click="8">
   <div class="zi-label">applications</div>
   <div class="zi-grid">
     <div class="zi-app"><img src="/logos/qgis.svg" alt="" /><span>QGIS</span></div>
     <div class="zi-app"><img src="/logos/arcgis.svg" alt="" /><span>ArcGIS</span></div>
     <div class="zi-app"><img src="/logos/netcdf-logo.png" alt="" /><span>netCDF tools</span></div>
     <div class="zi-app"><span class="zi-emoji">🛰️</span><span>any COG reader</span></div>
+  </div>
   </div>
 </div>
 

@@ -779,3 +779,19 @@ sup.fn {
   background: transparent;
   opacity: 0.85;
 }
+
+/* Boxed, bold answer line under a question-style heading */
+.slidev-layout p.answer-box {
+  display: inline-block;
+  margin: -0.4rem 0 0.2rem 0;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid var(--em-accent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--em-accent) 12%, transparent);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* keep the cloud -> laptop flow inside the slide when an answer box sits above it */
+.dl-zone { padding-top: 1.05rem; padding-bottom: 0.4rem; }
+.dl-cloud { gap: 0.15rem; }
