@@ -346,19 +346,29 @@ layout: devseed
 
 # Design
 
-## What Do We Want In A Level 2 Zarr System
+## What Do We Want In A ~~Level 2 Zarr System~~ **Array Database?**
+<div class="grid grid-cols-[1fr_auto] gap-x-10 items-center">
+<div>
 
-- It should leverage existing technology from other "Big Data" domains.
-- It atomic transactions to commit **data and metadata** together.
-- It should support embarrassingly parallel reading and writing.
-- It is domain agnostic and can work across geospatial and bioimaging
-  domains.
+At this point we need to take a step back and realize that we're
+trying to build database technology that needs to solve these problems.
+
+1. Storing columnar metadata.
+2. Querying using industry standard tooling.
+3. Supporting transactions for **data and metadata** together.
+4. Scaling to **billions?** of arrays.
+
+</div>
+
+<AtomicCommit />
+
+</div>
 
 ---
 layout: devseed
 ---
 
-# First Attempts
+# Initial Attempt
 
 Most of the "metadata" we're discussing can be modeled as an Arrow schema. So as an initial experiment we thought **What if we could store Arrow like data in Icechunk?**
 
@@ -384,28 +394,68 @@ layout: devseed
 
 ## Pros and cons
 
-<div class="grid grid-cols-2 gap-x-12">
-<div>
+<div class="pros-cons">
 
-### Pros
-
-- Only requires **Icechunk** and a compliant **DataFusion table provider**.
-- Materialized **R-tree and B-tree indexes** can be stored as Zarr arrays and used in the query pipeline, which can be much more efficient than common Parquet engine pushdown optimizations.
-- Writing data only requires an **Icechunk-compatible Zarr client**.
-
-</div>
-<div>
-
-### Cons
-
-- A very **custom solution** that doesn't leverage other great industry tools.
-- Writers need to coordinate writing their metadata "columns" so that "rows" are **chunk aligned**.
-- **Variable-length dtypes** have poor decoding performance in Zarr.
+| Pros | Cons |
+| --- | --- |
+| Only requires **Icechunk** and a compliant **DataFusion table provider**. | A very **custom solution** that doesn't leverage other great industry tools. |
+| Materialized **R-tree and B-tree indexes** can be stored as Zarr arrays and used in the query pipeline, which can be much more efficient than common Parquet engine pushdown optimizations. | Writers need to coordinate writing their metadata "columns" so that "rows" are **chunk aligned**. |
+| Writing data only requires an **Icechunk-compatible Zarr client**. | **Variable-length dtypes** have poor decoding performance in Zarr. |
 
 </div>
-</div>
+
+<IndexQuery class="mt-5" />
+
+<style>
+.pros-cons table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+/* Same line structure as the Earthmover tables, with DevSeed navy as the accent */
+.slidev-layout.ds-layout .pros-cons th { font-size: 0.9rem; font-weight: 700; text-align: left; padding: 0.5em 0.8em; border-bottom: 2px solid var(--ds-highlight); }
+.slidev-layout.ds-layout .pros-cons td { font-size: 0.8rem; line-height: 1.35; padding: 0.4em 0.8em; vertical-align: top; border-bottom: 1px solid rgba(255, 255, 255, 0.45); }
+</style>
 
 ---
+layout: devseed
+---
+
+# Icechest
+
+## The best of both worlds?
+
+What if we could take advantage of the best parts of an **array store** like Icechunk and an **open table format** like Iceberg?
+
+<div class="ice-eq">
+  <div class="ice-term">
+    <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk logo" />
+    <span class="ice-name">Icechunk</span>
+    <span class="ice-role">Array data</span>
+  </div>
+  <span class="ice-op">+</span>
+  <div class="ice-term">
+    <img src="/images/icechest/iceberg-logo-icon.png" alt="Apache Iceberg logo" />
+    <span class="ice-name">Apache Iceberg</span>
+    <span class="ice-role">Tabular metadata</span>
+  </div>
+  <span class="ice-op">=</span>
+  <div class="ice-term ice-result">
+    <img src="/images/icechest/icechest_logo.png" alt="Icechest logo: a red cooler with Icechunk and Apache Iceberg stickers" />
+    <span class="ice-name">arrays + tables</span>
+    <span class="ice-role">In one Icechunk commit</span>
+  </div>
+</div>
+
+<style>
+.ice-eq { display: flex; align-items: flex-start; justify-content: center; gap: 1.75rem; margin-top: 1rem; }
+.ice-term { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+/* Same 10rem image box for every term so the captions line up */
+.ice-term img { height: 10rem; padding: 1.75rem 0; object-fit: contain; margin-bottom: 0.2rem; }
+.ice-result img { padding: 0; }
+.ice-name { font-weight: 900; font-size: 1.1rem; }
+.ice-role { font-size: 0.85rem; opacity: 0.85; }
+.ice-op { font-size: 2.5rem; font-weight: 900; line-height: 10rem; }
+</style>
+
+---
+Domain Agnostic schemas
 <!--
 Placeholder content (taken from the abstract). Layouts available for this half:
 `devseed-statement` (big statement) and `devseed` (heading + body).
