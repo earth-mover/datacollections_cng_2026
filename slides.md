@@ -455,6 +455,42 @@ What if we could take advantage of the best parts of an **array store** like Ice
 </style>
 
 ---
+layout: devseed
+---
+
+# Icechest
+
+## How it works
+
+Iceberg normally relies on a **catalog service** to track the current `metadata.json`. Instead of a catalog service, Icechest stores that pointer in **Icechunk commit metadata**.
+
+<IcechestPointer class="mt-6" />
+
+---
+layout: devseed
+---
+
+# Icechest pros
+
+## Standard tooling, one commit
+
+Rather than reinventing the wheel like we did with Zarr-Datafusion-Search, Icechest lets us use **standard tooling** for writing and reading both **columnar data** and **array data**.
+
+<IcechestWrite class="mt-6" />
+
+---
+layout: devseed
+---
+
+# Icechest cons
+
+## Table maintenance is on us
+
+A catalog service normally handles table maintenance. In Icechest, Iceberg versions are pinned by **Icechunk snapshots**, which have their **own lifecycle**, so we have to manage maintenance ourselves.
+
+<IcechestMaintenance class="mt-4" />
+
+---
 Domain Agnostic schemas
 <!--
 Placeholder content (taken from the abstract). Layouts available for this half:
