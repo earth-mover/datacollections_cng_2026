@@ -145,33 +145,40 @@ layout: two-col-header
 
 ::left::
 
-- You **cannot** think of Level 2 data as one datacube
-- Fundamental problem: **many arrays with no shared coordinate system**
-- So geospatial folks use many separate COGs, then index them with STAC
-  - We also see anti-patterns: many small Zarrs, or one Zarr with an unwieldy number of groups
+<ul>
+<li v-click="1">You <strong>cannot</strong> think of Level 2 data as one datacube</li>
+<li v-click="3">Fundamental problem: <strong>many arrays with no shared coordinate system</strong></li>
+<li v-click="5">So geospatial folks use many separate COGs, then index them with STAC
+<ul><li v-click="6">We also see anti-patterns: many small Zarrs, or one Zarr with an unwieldy number of groups</li></ul>
+</li>
+</ul>
+
+<div v-click="7">
 
 > [!IMPORTANT]
 > This problem is **not** specific to geospatial 🌍!<br />
 > 🔬 Bioimaging: millions of OME-TIFFs + an index.<br />
 > ⚛️ Fusion: many Zarr stores + a Parquet index.
 
+</div>
+
 ::right::
 
 <div class="no-cube">
-  <div class="no-cube-scenes">
+  <div v-click="2" class="no-cube-scenes">
     <div class="flat-scene" style="--w:7rem; --h:5rem; --x:0.2rem; --y:0.6rem; --rot:-14deg; background-position: 10% 20%; filter: hue-rotate(0deg);"><span>EPSG:32610</span></div>
     <div class="flat-scene" style="--w:5.5rem; --h:6rem; --x:6.2rem; --y:0rem; --rot:11deg; background-position: 60% 70%; filter: hue-rotate(40deg);"><span>EPSG:32611</span></div>
     <div class="flat-scene" style="--w:6.5rem; --h:4.5rem; --x:1.6rem; --y:6.4rem; --rot:7deg; background-position: 85% 15%; filter: hue-rotate(-40deg);"><span>EPSG:32633</span></div>
     <div class="flat-scene" style="--w:5rem; --h:5rem; --x:7.6rem; --y:6.8rem; --rot:-22deg; background-position: 30% 85%; filter: hue-rotate(80deg);"><span>EPSG:3031</span></div>
   </div>
-  <div class="no-cube-arrow">
+  <div v-click="4" class="no-cube-arrow">
     <svg viewBox="0 0 80 40" width="80" height="40" aria-hidden="true">
       <line x1="4" y1="20" x2="68" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
       <polyline points="58,10 70,20 58,30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
     <span class="no-cube-x">✕</span>
   </div>
-  <svg class="no-cube-cube" viewBox="0 0 120 130" width="120" height="130" aria-label="An empty datacube outline">
+  <svg v-click="4" class="no-cube-cube" viewBox="0 0 120 130" width="120" height="130" aria-label="An empty datacube outline">
     <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="7 6" stroke-linejoin="round">
       <polygon points="60,8 112,36 60,64 8,36" />
       <polyline points="8,36 8,96 60,124 112,96 112,36" />
@@ -180,7 +187,7 @@ layout: two-col-header
   </svg>
 </div>
 
-<div class="text-center text-sm opacity-70 mt-3">different footprints and CRSs: nothing shared to stack along</div>
+<div v-click="4" class="text-center text-sm opacity-70 mt-3">different footprints and CRSs: nothing shared to stack along</div>
 
 ---
 
