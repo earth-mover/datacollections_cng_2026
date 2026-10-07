@@ -432,19 +432,29 @@ tiny new objects, reuses every chunk, and leaves the old version intact.
 layout: two-col-header
 ---
 
-# WHAT WOULD BE BETTER?
+# IDEA: ICECHUNK DATACOLLECTIONS
 
-## a domain-agnostic way to manage sets of related arrays
+## better: many images + catalog, in one repo
 
 ::left::
 
-- If only we could put **all the chunks and all the metadata** in one consistently versioned, cloud-native data repository…
-- We still want STAC-like metadata search
-- But if we can get that *from* Icechunk, we immediately gain loads of powerful features
+<v-clicks at="1" depth="2">
+
+- What if we put **many, many images** (any shapes, any CRSs) into one Icechunk repo…
+  - …alongside a 1D, **STAC-like metadata table** to search them?
+
+</v-clicks>
+
+<v-clicks at="4">
+
+- Chunks and catalog are versioned together: **ACID, consistency, versioning and virtual chunks, for free**
+- And it's domain-agnostic: any set of related arrays
+
+</v-clicks>
 
 ::right::
 
-<div class="ic-repo">
+<div v-click="3" class="ic-repo">
   <div class="ic-repo-head">
     <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" />
     <span>one Icechunk repo</span>
@@ -472,37 +482,6 @@ layout: two-col-header
 <!--
 The fix for the disjoint-systems problem: the same scenes A–D, but now the
 catalog and the chunks live in one repo, so they can't drift apart.
--->
-
----
-layout: section
----
-
-# IDEA
-
-## icechunk level 2 datacollections
-
----
-layout: two-col
----
-
-# DATACOLLECTIONS
-
-## many images, one repo
-
-- For a Level 3 datacube we usually assume **1 Xarray Dataset == 1 Zarr store**
-- What if instead we put **many, many images** into one Zarr store?
-- Then we just need a 1D metadata table (which could be STAC-like) to find images of interest
-- If that Zarr store is an **Icechunk repo**, we get ACID, consistency, versioning, and virtual chunks — all for free
-
-::right::
-
-<!-- TODO: diagram — one Icechunk repo containing many independent image
-arrays (different shapes / CRSs) plus a 1D metadata table pointing at them -->
-
-![Icechunk](/brand-kit/assets/diagrams/Icechunk-Diagram.svg)
-
-<!--
 Handoff to Sean for the design details.
 -->
 
