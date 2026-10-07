@@ -605,21 +605,21 @@ way out, from whatever subset you asked for.
 layout: two-col-header
 ---
 
-# "BUT A COG IS STILL A VALID TIFF!"
+# COMPATIBILITY
 
-## yes — for *filesystem* applications
+## "but many applications understand TIFF!"
+
+yes — *filesystem* applications
 
 ::left::
 
 <div class="why-text">
 
-- We can reconstruct GeoTIFFs on demand for any local program (e.g. ArcGIS)
+- We can **reconstruct GeoTIFFs on demand** for any local program (e.g. ArcGIS)
 - It's genuinely impressive that macOS Preview can open a COG — a feat of format stability
-  - But no one points Preview at object storage; it can't even read from there
-- Any application that reads TIFFs **from object storage** can be taught to read Zarr
-  - It all boils down to HTTP range requests anyway
-  - Worst case: an adapter layer that makes a Zarr look like a COG (like netcdf-c on Icechunk)
-- It's 2026 — that interface layer is a fully specified, verifiable task. Vibe-code it!
+  - But no one points Preview at object storage
+- Any application that reads TIFFs **from object storage** can be taught to read Zarr (it's all just range requests)
+- Compatibility via adapter layer is a **much easier problem** than consistency - vibe code it!
 
 </div>
 
@@ -629,15 +629,15 @@ layout: two-col-header
   <div class="zi-store">
     <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" />
     <img src="/brand-kit/assets/logos/third-party/zarr.svg" alt="" />
-    <span><strong>Zarr</strong> in object storage <em>(e.g. Icechunk)</em></span>
+    <span><strong>Icechunk-Zarr</strong> in object storage</span>
   </div>
   <div class="zi-http">↓ HTTP range requests ↓</div>
   <div class="zi-label">interface layer</div>
   <div class="zi-grid">
-    <div class="zi-if">GDAL Zarr driver</div>
-    <div class="zi-if">on-demand GeoTIFF (Flux)</div>
-    <div class="zi-if">netcdf-c + Icechunk</div>
-    <div class="zi-if">Zarr → COG adapter ✨</div>
+    <a class="zi-if zi-exists" href="https://github.com/OSGeo/gdal/pull/14755" target="_blank">GDAL Icechunk driver<span class="zi-status">✅ exists</span></a>
+    <a class="zi-if zi-exists" href="https://docs.earthmover.io/compute/edr#general-options" target="_blank">on-demand GeoTIFF (Flux)<span class="zi-status">✅ exists</span></a>
+    <div class="zi-if zi-wip">netcdf-c + Icechunk<span class="zi-status">🚧 in progress</span></div>
+    <div class="zi-if zi-could">Zarr → COG adapter ✨<span class="zi-status">💡 could exist</span></div>
     <div class="zi-arrow">↓</div>
     <div class="zi-arrow">↓</div>
     <div class="zi-arrow">↓</div>
