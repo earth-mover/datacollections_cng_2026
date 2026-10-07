@@ -85,42 +85,40 @@ get the same benefits Zarr + Icechunk give Level 3?
 <div class="grid grid-cols-2 gap-x-10 mt-4">
 <div>
 
-<v-clicks>
-
-| Property | Icechunk-Zarr |
-|---|:---:|
-| Single entrypoint for metadata<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Query by coordinates<img v-click="15" class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> | ✅ |
-| Scalable<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Serverless<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Uncoordinated reads<span v-click="13" class="mark">☁️</span><img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Uncoordinated writes<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-
-</v-clicks>
+<table>
+<thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th></tr></thead>
+<tbody>
+<tr v-click="1"><td>Single entrypoint for metadata<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="2"><td>Query by coordinates<span v-click="7" class="mark">☁️</span><img v-click="3" class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="4"><td>Scalable<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="5"><td>Serverless<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="6"><td>Uncoordinated reads<span v-click="7" class="mark">☁️</span><img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="8"><td>Uncoordinated writes<img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+</tbody>
+</table>
 
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
-<div v-click="13"><span class="mark">☁️</span> i.e. "cloud-optimized"</div>
-<div v-click="14"><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> from Zarr</div>
+<div v-click="7"><span class="mark">☁️</span> i.e. "cloud-optimized"</div>
+<div v-click="11"><img class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> from Zarr</div>
 </div>
 
 </div>
 <div>
 
-<v-clicks>
-
-| Property | Icechunk-Zarr |
-|---|:---:|
-| Arbitrary N-D schemas<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| Domain-agnostic<img v-click="14" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /> | ✅ |
-| ACID transactions and consistency<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Versioning, time travel, branches<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Schema evolution<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-| Zero-copy ingestion ("virtual chunks")<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> | ✅ |
-
-</v-clicks>
+<table>
+<thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th></tr></thead>
+<tbody>
+<tr v-click="9"><td>Arbitrary N-D schemas<img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="10"><td>Domain-agnostic<img v-click="11" class="mark" src="/brand-kit/assets/logos/third-party/zarr.svg" alt="Zarr" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="12"><td>ACID transactions and consistency<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="13"><td>Versioning, time travel, branches<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="14"><td>Schema evolution<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /></td><td style="text-align:center">✅</td></tr>
+<tr v-click="15"><td>Zero-copy ingestion ("virtual chunks")<img v-click="16" class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /></td><td style="text-align:center">✅</td></tr>
+</tbody>
+</table>
 
 <div class="mark-legend text-base opacity-70 mt-8 ml-4">
-<div v-click="15"><img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> from Xarray</div>
+<div v-click="3"><img class="mark" src="/brand-kit/assets/logos/third-party/xarray.svg" alt="Xarray" /> from Xarray</div>
 <div v-click="16"><img class="mark" src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="Icechunk" /> from Icechunk</div>
 </div>
 
