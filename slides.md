@@ -529,21 +529,6 @@ Commit memory and time grow with the <b>total nodes in the store</b> (<a href="h
 </style>
 
 ---
-Domain Agnostic schemas
-<!--
-Placeholder content (taken from the abstract). Layouts available for this half:
-`devseed-statement` (big statement) and `devseed` (heading + body).
--->
-
----
-layout: end
----
-
-[earthmover.io](https://earthmover.io) · [developmentseed.org](https://developmentseed.org)
-
----
-layout: section
----
 
 # BACKUP
 
