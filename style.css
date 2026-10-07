@@ -809,3 +809,13 @@ sup.fn {
   color: var(--em-heading);
   white-space: nowrap;
 }
+
+.closing-q { text-align: center; }
+
+.closing-topic {
+  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--em-accent);
+}

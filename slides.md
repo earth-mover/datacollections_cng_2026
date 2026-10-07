@@ -388,7 +388,7 @@ the catalog still points at (404). Neither side can roll back the other.
 layout: two-col-header
 ---
 
-# DEAD END
+# SINGLE FILE FORMAT = DEAD END
 
 ## these limitations are inherent to COG
 
@@ -397,7 +397,7 @@ layout: two-col-header
 <div class="why-text">
 <p v-click="1" class="why-claim">A single-file container format can never support key features in object storage, since <it>object storage has no edit-in-place</it>.</p>
 <ul>
-<li v-click="2">Prevents uncoordinated writes</li>
+<li v-click="2">Prevents truly uncoordinated writes</li>
 <li v-click="3">Prevents cheap updates → no schema evolution, no versioning</li>
 <li v-click="7"><strong>Prevents consistency(!!)</strong> using the serverless mechanism Icechunk uses (conditional puts)</li>
 <li v-click="8">Virtual references inherently involve multiple files</li>
@@ -712,7 +712,10 @@ rightAvatar: /images/sean-harkins.jpg
 
 ::center::
 
-<div class="closing-q">what do you think?</div>
+<div class="closing-q">
+<div class="closing-topic">level 2 Icechunk data collections</div>
+<div>what do you think?</div>
+</div>
 
 <!--
 Closing slide: open it up for questions and discussion.
