@@ -211,7 +211,7 @@ layout: two-col-header
 <tr v-click="3"><td>Scalable<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
 <tr v-click="4"><td>Serverless<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">1</sup></td></tr>
 <tr v-click="5"><td>Uncoordinated reads<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
-<tr v-click="7"><td>Uncoordinated writes</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
+<tr v-click="7"><td>Uncoordinated writes</td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">2</sup></td></tr>
 </tbody>
 </table>
 
@@ -230,13 +230,14 @@ layout: two-col-header
 <tr v-click="10"><td>ACID transactions and consistency</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
 <tr v-click="11"><td>Versioning, time travel, branches</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
 <tr v-click="12"><td>Schema evolution</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
-<tr v-click="13"><td>Zero-copy ingestion</td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">2</sup></td></tr>
+<tr v-click="13"><td>Zero-copy ingestion</td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">3</sup></td></tr>
 </tbody>
 </table>
 
 <div class="mark-legend text-base opacity-70 mt-6 ml-4">
 <div v-click="4"><sup class="fn">1</sup> only with stac-geoparquet (no STAC API server)</div>
-<div v-click="13"><sup class="fn">2</sup> only if your data are already COGs</div>
+<div v-click="7"><sup class="fn">2</sup> only if writing to separate COG files</div>
+<div v-click="13"><sup class="fn">3</sup> only if data already Cloud-Optimized (e.g. COG/Zarr)</div>
 </div>
 
 </div>
@@ -252,9 +253,10 @@ exactly why we (rightly) call COG "cloud-optimized".
 
 Serverless 🟠: COGs plus a static stac-geoparquet catalog need no server, but
 the usual setup is a STAC API + database (e.g. pgSTAC).
-Uncoordinated writes ❌: every new scene means updating the shared catalog.
-Zero-copy ingestion 🟠: only if the source data are already COGs; otherwise
-you have to rewrite everything into COGs first.
+Uncoordinated writes 🟠: fine if each writer produces its own separate COG
+files, but every new scene still means updating the shared catalog.
+Zero-copy ingestion 🟠: only if the source data are already cloud-optimized
+(e.g. COG/Zarr); otherwise you have to rewrite everything first.
 -->
 
 ---
