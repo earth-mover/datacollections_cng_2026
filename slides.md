@@ -23,9 +23,9 @@ CNG Forum 2026 · Thu, Oct 08, 2026
 
 ## what we'll cover
 
-1. Desired properties of a cloud-native data system
+1. Features of an ideal cloud-native data system
 2. Level 2 vs Level 3 today
-3. Limitations of the COG + STAC design
+3. Limitations of COG + STAC
 4. Idea: Icechunk DataCollections
 5. (Sean) Prototypes and future work
 
@@ -46,14 +46,17 @@ Lots of debate last year, and the rough consensus was:
 ::left::
 
 <div class="text-center">
+<div v-click="1">
 <img src="/images/datacube.png" alt="A datacube of gridded variables" class="h-40 mx-auto mb-3" />
 <div class="text-sm uppercase tracking-widest opacity-70">Level 3 · gridded datacubes</div>
-<div class="text-5xl font-medium text-em-violet mt-2">Zarr wins</div>
+</div>
+<div v-click="2" class="text-5xl font-medium text-em-violet mt-2">Zarr wins</div>
 </div>
 
 ::right::
 
 <div class="text-center">
+<div v-click="3">
 <div class="scene-stack h-40 mx-auto mb-3" aria-label="A stack of overlapping satellite scenes">
   <div class="scene-stack-inner">
     <div class="scene" style="--i:0; --dx:-18px; --dy:10px; --rot:-6deg; background-position: 10% 20%; filter: hue-rotate(0deg);"></div>
@@ -63,11 +66,12 @@ Lots of debate last year, and the rough consensus was:
   </div>
 </div>
 <div class="text-sm uppercase tracking-widest opacity-70">Level 2 · individual scenes</div>
-<div class="text-5xl font-medium text-em-lime mt-2">COG + STAC wins</div>
+</div>
+<div v-click="4" class="text-5xl font-medium text-em-lime mt-2">COG + STAC wins</div>
 </div>
 
-<div class="absolute bottom-14 left-0 right-0 text-center text-2xl opacity-80">
-does it have to be that way?
+<div v-click="5" class="absolute bottom-14 left-0 right-0 text-center text-2xl opacity-80">
+but similar aims: so why the split?
 </div>
 
 <!--
@@ -147,9 +151,9 @@ layout: two-col-header
 
 <ul>
 <li v-click="1">You <strong>cannot</strong> think of Level 2 data as one datacube</li>
-<li v-click="3">Fundamental problem: <strong>many arrays with no shared coordinate system</strong></li>
+<li v-click="3">Problem: <strong>many arrays, no shared coordinate system</strong></li>
 <li v-click="5">So geospatial folks use many separate COGs, then index them with STAC
-<ul><li v-click="6">We also see anti-patterns: many small Zarrs, or one Zarr with an unwieldy number of groups</li></ul>
+<ul><li v-click="6">We also see anti-patterns: many small Zarrs, or one Zarr with too many groups</li></ul>
 </li>
 </ul>
 
@@ -158,6 +162,7 @@ layout: two-col-header
 > [!IMPORTANT]
 > This problem is **not** specific to geospatial 🌍!<br />
 > 🔬 Bioimaging: millions of OME-TIFFs + an index.<br />
+> 🔭 Astronomy: many images as separate FITS files.<br />
 > ⚛️ Fusion: many Zarr stores + a Parquet index.
 
 </div>
