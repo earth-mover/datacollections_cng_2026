@@ -194,14 +194,18 @@ layout: two-col-header
 <table>
 <thead><tr><th>Property</th><th style="text-align:center">Icechunk-Zarr</th><th style="text-align:center">STAC + COG</th></tr></thead>
 <tbody>
-<tr v-click="1"><td>Single entrypoint<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
-<tr v-click="2"><td>Query by coordinates<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
-<tr v-click="3"><td>Scalable<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
-<tr v-click="4"><td>Serverless<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
-<tr v-click="5"><td>Uncoordinated reads<span class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
-<tr v-click="7"><td>Uncoordinated writes</td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
+<tr v-click="1"><td>Single entrypoint<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="2"><td>Query by coordinates<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="3"><td>Scalable<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="4"><td>Serverless<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">1</sup></td></tr>
+<tr v-click="5"><td>Uncoordinated reads<span v-click="6" class="mark">☁️</span></td><td style="text-align:center">✅</td><td style="text-align:center">✅</td></tr>
+<tr v-click="7"><td>Uncoordinated writes</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
 </tbody>
 </table>
+
+<div class="mark-legend text-base opacity-70 mt-6 ml-4">
+<div v-click="6"><span class="mark">☁️</span> i.e. "cloud-optimized"</div>
+</div>
 
 </div>
 <div>
@@ -214,15 +218,16 @@ layout: two-col-header
 <tr v-click="10"><td>ACID transactions and consistency</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
 <tr v-click="11"><td>Versioning, time travel, branches</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
 <tr v-click="12"><td>Schema evolution</td><td style="text-align:center">✅</td><td style="text-align:center">❌</td></tr>
-<tr v-click="13"><td>Zero-copy ingestion</td><td style="text-align:center">✅</td><td style="text-align:center">🟠</td></tr>
+<tr v-click="13"><td>Zero-copy ingestion</td><td style="text-align:center">✅</td><td style="text-align:center">🟠<sup class="fn">2</sup></td></tr>
 </tbody>
 </table>
 
-</div>
+<div class="mark-legend text-base opacity-70 mt-6 ml-4">
+<div v-click="4"><sup class="fn">1</sup> only with stac-geoparquet (no STAC API server)</div>
+<div v-click="13"><sup class="fn">2</sup> only if your data are already COGs</div>
 </div>
 
-<div v-click="6" class="mark-legend text-base opacity-70 mt-6 ml-4">
-<span class="mark">☁️</span> i.e. "cloud-optimized"
+</div>
 </div>
 
 <style>
@@ -233,8 +238,11 @@ th, td { white-space: nowrap; padding-left: 0.3rem !important; padding-right: 0.
 Be generous here: STAC + COG is a huge success, and the first three ticks are
 exactly why we (rightly) call COG "cloud-optimized".
 
-Serverless 🟠: COGs and static STAC catalogs need no server, but searching at
-scale in practice means running a STAC API + database (e.g. pgSTAC).
+Serverless 🟠: COGs plus a static stac-geoparquet catalog need no server, but
+the usual setup is a STAC API + database (e.g. pgSTAC).
+Uncoordinated writes ❌: every new scene means updating the shared catalog.
+Zero-copy ingestion 🟠: only if the source data are already COGs; otherwise
+you have to rewrite everything into COGs first.
 -->
 
 ---
