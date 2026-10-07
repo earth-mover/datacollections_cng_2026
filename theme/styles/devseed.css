@@ -1,6 +1,6 @@
 /* Development Seed–style slides (for DevSeed speakers' sections).
    Solid DevSeed orange, heavy white Roboto, key phrases picked out in
-   DevSeed's dark grey via **bold**. Looks the same in light and dark mode. */
+   light blue via **bold**. Looks the same in light and dark mode. */
 
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/700.css';
@@ -9,6 +9,8 @@
 :root {
   --ds-orange: #CF3F02;
   --ds-dark: #443F3F;
+  --ds-highlight: #0F1E3D; /* navy accent: diagram fills, table rules */
+  --ds-bold: #6AAEF5;      /* **bold** key phrases */
   --ds-white: #FFFFFF;
 }
 
@@ -64,7 +66,7 @@
 
 /* **bold** = highlighted phrase, as in DevSeed decks */
 .slidev-layout.ds-layout strong {
-  color: var(--ds-dark);
+  color: var(--ds-bold);
   font-weight: 900;
 }
 
