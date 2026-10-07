@@ -715,6 +715,7 @@ rightAvatar: /images/sean-harkins.jpg
 <div class="closing-q">
 <div class="closing-topic">level 2 Icechunk data collections</div>
 <div>what do you think?</div>
+<a class="closing-link" href="https://slides.earthmover.io/main/cng-forum-2026-level2-datacollections/" target="_blank">🔗 slides.earthmover.io/main/cng-forum-2026-level2-datacollections</a>
 </div>
 
 <!--

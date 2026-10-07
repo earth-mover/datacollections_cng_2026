@@ -819,3 +819,17 @@ sup.fn {
   letter-spacing: 0.04em;
   color: var(--em-accent);
 }
+
+/* Shareable link to the published deck, on the closing slide */
+.closing-q { pointer-events: auto; }
+
+.slidev-layout a.closing-link {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--em-accent);
+  text-decoration: none;
+  border-bottom: none;
+}
