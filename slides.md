@@ -246,6 +246,74 @@ you have to rewrite everything into COGs first.
 -->
 
 ---
+layout: grid
+cols: 3
+clicks: 1
+---
+
+<template #header>
+
+# IN PRACTICE
+
+## COG's limitations cause real problems
+
+</template>
+
+<div class="pc-card pc-focus" :class="{ 'pc-on': $clicks >= 1 }">
+
+### Consistency failures
+
+During operational updates, the catalog and the data can disagree
+
+</div>
+
+<div class="pc-card" :class="{ 'pc-dim': $clicks >= 1 }">
+
+### Rigid data layouts
+
+No hyperspectral bands, no ensemble members, no time dimension
+
+</div>
+
+<div class="pc-card" :class="{ 'pc-dim': $clicks >= 1 }">
+
+### Query-optimized chunking
+
+Can't always rechunk for access patterns, e.g. timeseries
+
+</div>
+
+<div class="pc-card" :class="{ 'pc-dim': $clicks >= 1 }">
+
+### Expensive modifications
+
+Renaming one variable in a 1TB TIFF means downloading and re-uploading 1TB
+
+</div>
+
+<div class="pc-card" :class="{ 'pc-dim': $clicks >= 1 }">
+
+### Domain-specific
+
+Microscopists have near-identical requirements, but COG + STAC are geo-only
+
+</div>
+
+<div class="pc-card" :class="{ 'pc-dim': $clicks >= 1 }">
+
+### Existing archives
+
+Can't reference non-cloud-optimized data, e.g. non-COG TIFFs
+
+</div>
+
+<!--
+Open questions to decide before the talk:
+- Timeseries access: would that actually be possible with Icechunk DataCollections?
+- Chunking across bands: do ML people want to do that?
+-->
+
+---
 layout: two-col-header
 ---
 
@@ -300,73 +368,6 @@ Data and metadata live in **two systems**, linked only by `href`s.
 Walk through the clicks: healthy state, then a new COG lands, then the job
 dies before the STAC item is written (orphan), then a reprocess deletes a COG
 the catalog still points at (404). Neither side can roll back the other.
--->
-
----
-layout: grid
-cols: 3
----
-
-<template #header>
-
-# IN PRACTICE
-
-## these limitations cause real problems
-
-</template>
-
-<div>
-
-### Consistency failures
-
-During operational updates, the catalog and the data can disagree
-
-</div>
-
-<div>
-
-### Rigid data layouts
-
-No hyperspectral bands, no ensemble members, no time dimension
-
-</div>
-
-<div>
-
-### Query-optimized chunking
-
-Can't always rechunk for access patterns, e.g. timeseries
-
-</div>
-
-<div>
-
-### Expensive modifications
-
-Renaming one variable in a 1TB TIFF means downloading and re-uploading 1TB
-
-</div>
-
-<div>
-
-### Domain-specific
-
-Microscopists have near-identical requirements, but COG + STAC are geo-only
-
-</div>
-
-<div>
-
-### Existing archives
-
-Can't reference non-cloud-optimized data, e.g. a biologist's plain TIFFs
-
-</div>
-
-<!--
-Open questions to decide before the talk:
-- Timeseries access: would that actually be possible with Icechunk DataCollections?
-- Chunking across bands: do ML people want to do that?
 -->
 
 ---
