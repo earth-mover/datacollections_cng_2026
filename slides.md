@@ -445,26 +445,26 @@ tiny new objects, reuses every chunk, and leaves the old version intact.
 -->
 
 ---
-layout: two-col-header
+layout: two-col-split
 ---
 
 # IDEA: ICECHUNK DATACOLLECTIONS
 
-## better: many images + catalog, in one repo
+## better: many images + catalog in one repo
 
 ::left::
 
 <v-clicks at="1" depth="2">
 
-- What if we put **many, many images** (any shapes, any CRSs) into one Icechunk repo…
-  - …alongside a 1D, **STAC-like metadata table** to search them?
+- What if we put **many images** (any shapes, any CRSs) into one Icechunk repo…
+- …alongside a searchable **STAC-like metadata table** that indexes them?
 
 </v-clicks>
 
 <v-clicks at="4">
 
 - Chunks and catalog are versioned together: **ACID, consistency, versioning and virtual chunks, for free**
-- And it's domain-agnostic: any set of related arrays
+- And it's domain-agnostic and works for any set of related arrays
 
 </v-clicks>
 
@@ -496,47 +496,13 @@ layout: two-col-header
 </div>
 
 <!--
-The fix for the disjoint-systems problem: the same scenes A–D, but now the
-catalog and the chunks live in one repo, so they can't drift apart.
-Handoff to Sean for the design details.
+So Tom is a bit of a downer :]  He's done a great job outlining all the paint points and problems that we have in this space. 
+
+What if we could put our arrays and searchable STAC-like metadata in a single repository?
+
+And have our chunks and tabular information versioned together with
+transactions, ACID Consistency and support virtual chunks.
 -->
-
----
-layout: devseed-statement
----
-
-# Sean Harkins · Development Seed
-
-## **Storing data and** STAC-like metadata **together**
-
-<!--
-Sean's half starts here. Section opener in DevSeed style.
-Use **bold** to pick out key phrases in DevSeed dark grey.
--->
-
----
-layout: devseed
----
-
-# Design
-
-## What Do We Want In A ~~Level 2 Zarr System~~ **Array Database?**
-<div class="grid grid-cols-[1fr_auto] gap-x-10 items-center">
-<div>
-
-At this point we need to take a step back and realize that we're
-trying to build database technology that needs to solve these problems.
-
-1. Storing columnar metadata.
-2. Querying using industry standard tooling.
-3. Supporting transactions for **data and metadata** together.
-4. Scaling to **billions?** of arrays.
-
-</div>
-
-<AtomicCommit />
-
-</div>
 
 ---
 layout: devseed
@@ -548,7 +514,8 @@ Most of the "metadata" we're discussing can be modeled as an Arrow schema. So as
 
 <div class="flex flex-col items-center gap-3 mt-4">
   <img src="/images/zarr-datafusion/zarr-datafusion_logo_white.png" alt="Zarr-Datafusion-Search logo" class="h-56" />
-  <span class="font-bold text-xl">Zarr-Datafusion-Search</span>
+  <a href="https://github.com/developmentseed/zarr-datafusion-search" target="_blank" class="font-bold text-xl">Zarr-Datafusion-Search</a>
+  <span class="text-sm opacity-85">github.com/developmentseed/zarr-datafusion-search</span>
 </div>
 
 ---
@@ -614,6 +581,7 @@ What if we could take advantage of the best parts of an **array store** like Ice
     <img src="/images/icechest/icechest_logo.png" alt="Icechest logo: a red cooler with Icechunk and Apache Iceberg stickers" />
     <span class="ice-name">arrays + tables</span>
     <span class="ice-role">In one Icechunk commit</span>
+    <a class="ice-link" href="https://github.com/developmentseed/icechest" target="_blank">github.com/developmentseed/icechest</a>
   </div>
 </div>
 
@@ -626,6 +594,7 @@ What if we could take advantage of the best parts of an **array store** like Ice
 .ice-name { font-weight: 900; font-size: 1.1rem; }
 .ice-role { font-size: 0.85rem; opacity: 0.85; }
 .ice-op { font-size: 2.5rem; font-weight: 900; line-height: 10rem; }
+.ice-link { margin-top: 0.3rem; font-size: 0.8rem; }
 </style>
 
 ---
