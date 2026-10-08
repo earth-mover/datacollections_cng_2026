@@ -654,7 +654,11 @@ Level 3 data may have billions of chunks, but in **one array**. Level 2 data mea
 | **combined** | 38,153,902 | | **7.70 B** |
 
 <div class="hls-callout">
-Commit memory and time grow with the <b>total nodes in the store</b> (<a href="https://github.com/earth-mover/icechunk/issues/2449">icechunk#2449</a>): one year of HLS (~318 M nodes) extrapolates to <b>~499 GiB</b> and <b>~5.7 min</b> per commit.
+Commit memory and time grow with <b>total nodes in the store</b> (<a href="https://github.com/earth-mover/icechunk/issues/2449">icechunk#2449</a>): one year of HLS (~318 M nodes) → <b>~499 GiB</b>, <b>~5.7 min</b> per commit.
+</div>
+
+<div class="hls-fix">
+<b>This is fixable:</b> Icechunk's <b>manifest splitting</b> approach just needs to be applied to the <b>node map</b>, and we're working on it now.
 </div>
 
 </div>
@@ -665,8 +669,10 @@ Commit memory and time grow with the <b>total nodes in the store</b> (<a href="h
 /* Same line structure as the Earthmover tables, with DevSeed navy as the accent */
 .slidev-layout.ds-layout .hls th { font-size: 0.8rem; font-weight: 700; padding: 0.4em 0.6em; border-bottom: 2px solid var(--ds-highlight); }
 .slidev-layout.ds-layout .hls td { font-size: 0.8rem; padding: 0.35em 0.6em; border-bottom: 1px solid rgba(255, 255, 255, 0.45); font-variant-numeric: tabular-nums; }
-.hls-callout { margin-top: 0.9rem; padding: 0.55rem 0.8rem; border-radius: 8px; background: var(--ds-highlight); font-size: 0.8rem; line-height: 1.4; }
+.hls-callout { margin-top: 0.7rem; padding: 0.55rem 0.8rem; border-radius: 8px; background: var(--ds-highlight); font-size: 0.8rem; line-height: 1.4; }
 .hls-callout b { font-weight: 900; }
+.hls-fix { margin-top: 0.5rem; padding: 0.4rem 0.8rem; border-radius: 8px; border: 2px dashed #fff; font-size: 0.8rem; line-height: 1.4; }
+.hls-fix b { font-weight: 900; }
 </style>
 
 ---
