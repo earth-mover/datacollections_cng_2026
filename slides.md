@@ -23,8 +23,8 @@ CNG Forum 2026 · Thu, Oct 08, 2026
 
 ## what we'll cover
 
-1. Features of an ideal cloud-native data system
-2. Level 2 vs Level 3 today
+1. Level 2 vs Level 3 today
+2. Features of an ideal cloud-native data system
 3. Limitations of COG + STAC
 4. Idea: Icechunk DataCollections
 5. (Sean) Prototypes and future work
