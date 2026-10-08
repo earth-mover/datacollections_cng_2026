@@ -659,6 +659,10 @@ Level 3 data may have billions of chunks, but in **one array**. Level 2 data mea
 Commit memory and time grow with the <b>total nodes in the store</b> (<a href="https://github.com/earth-mover/icechunk/issues/2449">icechunk#2449</a>): one year of HLS (~318 M nodes) extrapolates to <b>~499 GiB</b> and <b>~5.7 min</b> per commit.
 </div>
 
+<div class="hls-solvable">
+✅ We think this is <b>solvable</b>, but it may require <b>Icechunk v3</b>.
+</div>
+
 </div>
 </div>
 
@@ -669,6 +673,8 @@ Commit memory and time grow with the <b>total nodes in the store</b> (<a href="h
 .slidev-layout.ds-layout .hls td { font-size: 0.8rem; padding: 0.35em 0.6em; border-bottom: 1px solid rgba(255, 255, 255, 0.45); font-variant-numeric: tabular-nums; }
 .hls-callout { margin-top: 0.9rem; padding: 0.55rem 0.8rem; border-radius: 8px; background: var(--ds-highlight); font-size: 0.8rem; line-height: 1.4; }
 .hls-callout b { font-weight: 900; }
+.hls-solvable { margin-top: 0.6rem; padding: 0.55rem 0.8rem; border-radius: 8px; border: 2px solid #fff; font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
+.hls-solvable b { font-weight: 900; }
 </style>
 
 ---
