@@ -852,3 +852,102 @@ Applications don't need the bytes to be a TIFF; they need *an* interface.
 Thin adapter layers (existing drivers, on-demand conversion, or a small shim
 that presents Zarr as a COG) sit between apps and the same range requests.
 -->
+
+---
+layout: two-col-header
+---
+
+# EXISTING COGS
+
+## "what if my data is already in COG?"
+
+<p v-click="1" class="answer-box">great — ingest it <em>virtually</em>, no copying</p>
+
+::left::
+
+<div class="why-text">
+<ul>
+<li v-click="2">Read just the <strong>TIFF headers</strong> (KBs per file) to find where every tile lives</li>
+<li v-click="3">Store those byte ranges as <strong>virtual chunk references</strong> in an Icechunk repo
+<ul><li v-click="4">e.g. VirtualiZarr + DevSeed's <code>virtual-tiff</code> parser</li></ul>
+</li>
+<li v-click="6">The COGs stay exactly where they are — <strong>zero bytes of imagery copied</strong></li>
+<li v-click="7">…and you still get the catalog, versioning and transactions on top of your existing archive</li>
+</ul>
+</div>
+
+::right::
+
+<div class="vi">
+  <div v-click="2" class="vi-zone">
+    <div class="vi-zone-label">🪣 existing COG archive <span>untouched</span></div>
+    <div class="vi-cogs">
+      <div class="vi-cog"><span class="vi-hdr">hdr</span><span class="vi-tiles"></span><code>scene_A.tif</code></div>
+      <div class="vi-cog"><span class="vi-hdr">hdr</span><span class="vi-tiles"></span><code>scene_B.tif</code></div>
+      <div class="vi-cog"><span class="vi-hdr">hdr</span><span class="vi-tiles"></span><code>scene_C.tif</code></div>
+    </div>
+  </div>
+  <div v-click="3" class="vi-arrow">↓ <span>read headers only → byte ranges</span></div>
+  <div v-click="3" class="vi-repo">
+    <div class="vi-repo-head"><img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" /> Icechunk repo <span>chunk manifest</span></div>
+    <table class="vi-manifest">
+      <thead><tr><th>chunk</th><th>url</th><th>offset</th><th>length</th></tr></thead>
+      <tbody>
+        <tr><td>A/0.0</td><td>s3://…/scene_A.tif</td><td>16384</td><td>65536</td></tr>
+        <tr><td>A/0.1</td><td>s3://…/scene_A.tif</td><td>81920</td><td>65536</td></tr>
+        <tr><td>B/0.0</td><td>s3://…/scene_B.tif</td><td>16384</td><td>65536</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div v-click="5" class="vi-note">✓ catalog + versioning + transactions, on references</div>
+</div>
+
+<!--
+If the data is already COG, ingestion is cheap: parse each TIFF's header to
+get tile byte offsets, write them into Icechunk as virtual chunk references,
+and leave the COGs where they are. Reads go straight to the original files.
+Caveat: the TIFF's compression codec has to be one Zarr can decode.
+-->
+
+---
+layout: two-col-header
+---
+
+# ROLE OF COG
+
+## "then what role is left for COG?"
+
+<p v-click="1" class="answer-box">a great <em>delivery</em> format</p>
+
+::left::
+
+<div class="why-text">
+<ul>
+<li v-click="2">A COG is a fantastic thing to <strong>hand to someone</strong>: one self-describing file that works with almost every tool</li>
+<li v-click="3">But the <strong>system of record</strong> needs consistency, versioning and a catalog</li>
+<li v-click="5">So: <strong>store</strong> in Icechunk, <strong>deliver</strong> as COG — exported or generated on demand</li>
+<li v-click="6">Storage format ≠ delivery format</li>
+</ul>
+</div>
+
+::right::
+
+<div class="rc">
+  <div v-click="3" class="rc-store">
+    <img src="/brand-kit/assets/logos/third-party/icechunk.svg" alt="" />
+    <div><strong>Icechunk repo</strong><span>system of record: versioned, transactional, catalogued</span></div>
+  </div>
+  <div v-click="4" class="rc-arrow">↓ <span>deliver</span></div>
+  <div v-click="4" class="rc-outs">
+    <div class="rc-out"><span class="rc-icon">📄</span><strong>COG exports</strong><span>for distribution &amp; archives</span></div>
+    <div class="rc-out"><span class="rc-icon">⚡</span><strong>on-demand COG</strong><span>subset via Flux / EDR</span></div>
+    <div class="rc-out"><span class="rc-icon">🗺️</span><strong>map tiles</strong><span>for web maps</span></div>
+  </div>
+</div>
+
+<!--
+COG isn't going away — it's an excellent interchange/delivery format. The
+argument is only that it shouldn't be the system of record for a large,
+evolving Level 2 archive. Store once in Icechunk; emit COGs wherever a
+consumer wants a file.
+-->

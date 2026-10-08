@@ -833,3 +833,163 @@ sup.fn {
   text-decoration: none;
   border-bottom: none;
 }
+
+/* "Already in COG" bonus slide: virtual ingestion diagram */
+.vi { font-size: 0.78rem; }
+
+.vi-zone {
+  position: relative;
+  padding: 1.2rem 0.7rem 0.6rem;
+  border-radius: 0.7rem;
+  border: 2px dashed color-mix(in srgb, var(--em-text) 25%, transparent);
+}
+
+.vi-zone-label {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.7rem;
+  font-weight: 600;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.vi-zone-label span { font-weight: 400; opacity: 0.7; margin-left: 0.3rem; }
+
+.vi-cogs { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.vi-cog {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 1.5rem;
+}
+
+.vi-hdr {
+  width: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem 0 0 0.25rem;
+  background: var(--em-accent);
+  color: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 0.6rem;
+}
+
+.vi-tiles {
+  flex: 1;
+  height: 100%;
+  margin-left: -0.4rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 0.9rem, color-mix(in srgb, var(--em-text) 25%, transparent) 0.9rem calc(0.9rem + 1px)),
+    color-mix(in srgb, var(--em-text) 10%, transparent);
+}
+
+.vi-cog code { font-size: 0.65rem; width: 5.5rem; }
+
+.vi-arrow {
+  margin: 0.35rem 0;
+  text-align: center;
+  color: var(--em-accent);
+  font-size: 1.1rem;
+}
+
+.vi-arrow span { font-size: 0.7rem; color: var(--em-muted); margin-left: 0.3rem; }
+
+.vi-repo {
+  padding: 0.5rem 0.7rem 0.6rem;
+  border-radius: 0.7rem;
+  border: 2px solid #3d8ac6;
+  background: color-mix(in srgb, #3d8ac6 12%, transparent);
+}
+
+.vi-repo-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: #3d8ac6;
+}
+
+.vi-repo-head img { height: 1.3rem; }
+.vi-repo-head span { font-weight: 400; opacity: 0.8; color: var(--em-muted); }
+
+.slidev-layout table.vi-manifest { width: 100%; margin: 0; font-size: 0.62rem; }
+
+.slidev-layout table.vi-manifest th,
+.slidev-layout table.vi-manifest td {
+  padding: 0.15rem 0.35rem !important;
+  font-family: ui-monospace, monospace;
+  white-space: nowrap;
+}
+
+.vi-note {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-weight: 600;
+  background: color-mix(in srgb, #B7E400 22%, transparent);
+  border: 1.5px solid #B7E400;
+}
+
+/* "Role of COG" bonus slide: store once, deliver many ways */
+.rc { font-size: 0.8rem; margin-top: 0.6rem; }
+
+.rc-store {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.7rem;
+  border: 2px solid #3d8ac6;
+  background: color-mix(in srgb, #3d8ac6 12%, transparent);
+}
+
+.rc-store img { height: 2.2rem; }
+.rc-store strong { display: block; font-size: 0.95rem; }
+.rc-store span { display: block; opacity: 0.75; font-size: 0.72rem; }
+
+.rc-arrow {
+  margin: 0.5rem 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--em-accent);
+}
+
+.rc-arrow span { font-size: 0.72rem; color: var(--em-muted); margin-left: 0.3rem; }
+
+.rc-outs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.rc-out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: 0.6rem;
+  text-align: center;
+  border: 2px solid #B7E400;
+  background: color-mix(in srgb, #B7E400 14%, transparent);
+}
+
+.rc-icon { font-size: 1.4rem; }
+.rc-out span:not(.rc-icon) { font-size: 0.68rem; opacity: 0.75; }
+
+/* compact the virtual-ingestion diagram so it fits under the answer box */
+.vi-zone { padding: 1.05rem 0.6rem 0.45rem; }
+.vi-cogs { gap: 0.2rem; }
+.vi-cog { height: 1.2rem; }
+.vi-arrow { margin: 0.15rem 0; font-size: 0.95rem; }
+.vi-repo { padding: 0.35rem 0.6rem 0.4rem; }
+.vi-repo-head { margin-bottom: 0.2rem; }
+.slidev-layout table.vi-manifest th,
+.slidev-layout table.vi-manifest td { padding: 0.08rem 0.35rem !important; }
+.vi-note { margin-top: 0.35rem; padding: 0.2rem 0.6rem; }
