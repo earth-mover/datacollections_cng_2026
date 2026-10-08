@@ -494,9 +494,12 @@ layout: two-col-split
 </div>
 
 <!--
-The fix for the disjoint-systems problem: the same scenes A–D, but now the
-catalog and the chunks live in one repo, so they can't drift apart.
-Handoff to Sean for the design details.
+So Tom is a bit of a downer :]  He's done a great job outlining all the paint points and problems that we have in this space. 
+
+What if we could put our arrays and searchable STAC-like metadata in a single repository?
+
+And have our chunks and tabular information versioned together with
+transactions, ACID Consistency and support virtual chunks.
 -->
 
 ---
@@ -509,7 +512,8 @@ Most of the "metadata" we're discussing can be modeled as an Arrow schema. So as
 
 <div class="flex flex-col items-center gap-3 mt-4">
   <img src="/images/zarr-datafusion/zarr-datafusion_logo_white.png" alt="Zarr-Datafusion-Search logo" class="h-56" />
-  <span class="font-bold text-xl">Zarr-Datafusion-Search</span>
+  <a href="https://github.com/developmentseed/zarr-datafusion-search" target="_blank" class="font-bold text-xl">Zarr-Datafusion-Search</a>
+  <span class="text-sm opacity-85">github.com/developmentseed/zarr-datafusion-search</span>
 </div>
 
 ---
@@ -575,6 +579,7 @@ What if we could take advantage of the best parts of an **array store** like Ice
     <img src="/images/icechest/icechest_logo.png" alt="Icechest logo: a red cooler with Icechunk and Apache Iceberg stickers" />
     <span class="ice-name">arrays + tables</span>
     <span class="ice-role">In one Icechunk commit</span>
+    <a class="ice-link" href="https://github.com/developmentseed/icechest" target="_blank">github.com/developmentseed/icechest</a>
   </div>
 </div>
 
@@ -587,6 +592,7 @@ What if we could take advantage of the best parts of an **array store** like Ice
 .ice-name { font-weight: 900; font-size: 1.1rem; }
 .ice-role { font-size: 0.85rem; opacity: 0.85; }
 .ice-op { font-size: 2.5rem; font-weight: 900; line-height: 10rem; }
+.ice-link { margin-top: 0.3rem; font-size: 0.8rem; }
 </style>
 
 ---
